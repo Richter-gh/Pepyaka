@@ -3,9 +3,61 @@ layout: default
 title: Буквы
 ---
 
-<div style="font-size: 32px;">
-    <label>
-    	<input type="checkbox">
-    	<span class="fancy-switch"></span>
-    </label>
-</div>
+<form action="/" method="GET">
+    <section class="text">
+        <input type="text" class="main-text-input" name="text" placeholder="Текст">
+
+        <p class="settings-notice">Можно <button class="pseudo-link js-toggle-font-settings">поиграться шрифтами</button>!</p>
+
+        <section class="font-settings js-font-settings">
+            <ul class="font-list">
+                <li>
+                    <label class="font-option">
+                        <input type="checkbox" name="katjka" checked>
+                        <span class="fancy-switch"></span>
+                        <img src="/i/fonts/katjka/D090.gif"><img src="/i/fonts/katjka/D0B1.gif"><img src="/i/fonts/katjka/D0B2.gif">
+                    </label>
+                </li>
+
+                <li>
+                    <label class="font-option">
+                        <input type="checkbox" name="wd" checked>
+                        <span class="fancy-switch"></span>
+                        <img src="/i/fonts/wd/font_15.gif"><img src="/i/fonts/wd/font_17.gif"><img src="/i/fonts/wd/font_19.gif">
+                    </label>
+                </li>
+
+                <li>
+                    <label class="font-option">
+                        <input type="checkbox" name="lobster" checked>
+                        <span class="fancy-switch"></span>
+                        <img src="/i/fonts/lobster/a.gif"><img src="/i/fonts/lobster/rus_be.gif"><img src="/i/fonts/lobster/b.gif">
+                    </label>
+                </li>
+
+                <li>
+                    <label class="font-option">
+                        <input type="checkbox" name="hardcoreololo" checked>
+                        <span class="fancy-switch"></span>
+                        <img src="/i/fonts/hardcoreololo/a.gif"><img src="/i/fonts/hardcoreololo/s3_1_3.gif"><img src="/i/fonts/hardcoreololo/dr.gif">
+                    </label>
+                </li>
+
+                <li>
+                    <label class="font-option">
+                        <input type="checkbox" name="cron" checked>
+                        <span class="fancy-switch"></span>
+                        <img src="/i/fonts/cron/A.gif"><img src="/i/fonts/cron/B.gif"><img src="/i/fonts/cron/V.gif">
+                    </label>
+                </li>
+            </ul>
+        </section>
+    </section>
+
+    <section class="result">
+        <h2>Результат</h2>
+        <div class="preview">
+            <img src="http://pepyaka.su/fonts/katjka/D0BB.gif"><img src="http://pepyaka.su/fonts/lobster/a.gif"><img src="http://pepyaka.su/fonts/wd/font_12.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/a.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/p.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/o.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/p.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/o.gif"><img src="http://pepyaka.su/fonts/lobster/p.gif"><img src="http://pepyaka.su/fonts/katjka/empty.gif"><img src="http://pepyaka.su/fonts/cron/A.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/pr.gif"><img src="http://pepyaka.su/fonts/wd/font_15.gif"><img src="http://pepyaka.su/fonts/cron/Z.gif"><img src="http://pepyaka.su/fonts/katjka/D0B0.gif">
+        </div>
+    </section>
+</form>
