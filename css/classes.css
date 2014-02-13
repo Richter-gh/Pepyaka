@@ -1,0 +1,48 @@
+/* ICON LINK */
+a.iconlink {
+  text-decoration: none;
+}
+
+a.iconlink > span {
+  text-decoration: underline;
+}
+
+a.iconlink:hover > span,
+a.iconlink:active > span  {
+  text-decoration: none;
+}
+
+/* PSEUDO LINK */
+.pseudo-link {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: #168cd2;
+  border-bottom: 1px dashed;
+}
+
+.pseudo-link:hover {
+  color: #fff;
+  background: #f92672;
+  border-bottom-color: transparent;
+}
+
+/* KBD */
+kbd {
+  display: inline-block;
+  line-height: 1.25;
+  background: #f9f9f9;
+  border: 0.09em solid #ddd;
+  border-radius: 0.25em;
+  padding: 0 0.25em 0.1em;
+  font-size: 0.75em;
+  font-family: inherit;
+  box-shadow: 0 0.15em 0 0.1em #ddd,
+        inset 0 0 0 0.1em #fff;
+  white-space: nowrap;
+}
+
+html.boxshadow kbd {
+  vertical-align: 0.1em;
+  margin: 0 0.2em;
+}

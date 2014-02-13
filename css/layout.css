@@ -1,0 +1,18 @@
+.page-header {
+	text-align: center;
+}
+
+.page-header .logo {
+	display: inline-block;
+	background: white;
+	border-radius: 1em;
+	padding: 1em;
+}
+
+.page-header .logo .title {
+	margin: 0;
+}
+
+.page-header .logo .tagline {
+	margin: 1em 0 0 0;
+}
