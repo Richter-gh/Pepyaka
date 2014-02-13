@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="/css/classes.css">
         <link rel="stylesheet" href="/css/modules.css">
         <link rel="stylesheet" href="/css/layout.css">
+        <link rel="stylesheet" href="/css/animations.css">
 
         <script src="/js/modernizr.js"></script>
     </head>
@@ -23,43 +24,34 @@
         <header class="page-header">
             <div class="logo">
                 <h1 class="title">
-                    <img src="http://pepyaka.su/fonts/hardcoreololo/gr.gif"><img src="http://pepyaka.su/fonts/katjka/D0B5.gif"><img src="http://pepyaka.su/fonts/wd/font_03.gif"><img src="http://pepyaka.su/fonts/katjka/D18F.gif"><img src="http://pepyaka.su/fonts/katjka/D0BA.gif"><img src="http://pepyaka.su/fonts/wd/font_15.gif">
+                    <a href="/"><img src="http://pepyaka.su/fonts/hardcoreololo/gr.gif"><img src="http://pepyaka.su/fonts/katjka/D0B5.gif"><img src="http://pepyaka.su/fonts/wd/font_03.gif"><img src="http://pepyaka.su/fonts/katjka/D18F.gif"><img src="http://pepyaka.su/fonts/katjka/D0BA.gif"><img src="http://pepyaka.su/fonts/wd/font_15.gif"></a>
                 </h1>
                 <p class="tagline">Инструмент подавления уныния</p>
             </div>
 
             <nav class="main-menu">
                 <ul>
+                    {% for node in site.pages %}
+                        {% if page.url == node.url %}
+                            <li class="active"><a href="{{node.url}}">{{node.title}}</a></li>
+                        {% else %}
+                            <li><a href="{{node.url}}">{{node.title}}</a></li>
+                        {% endif %}
+                    {% endfor %}
                 </ul>
             </nav>
         </header>
 
+        <section class="content">
+            {{ content }}
+        </section>
 
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-              <a class="extra" href="/">home</a>
-            </div>
+        <footer class="page-footer">
+            <p class="credits"><em>Пепяка 3.0</em> Авторы&nbsp;шрифтов&nbsp;<em>katjka</em> <em>Lobster_Petting</em> <em>Wild_Deer</em> <em>CroN</em> <em>hardcoreololo</em> Авторы&nbsp;блога&nbsp;<em>JekPot</em> <em>Wild_Deer</em> <em>Psychodozer</em> Укротитель&nbsp;ЭВМ&nbsp;<em>Zibx</em> Главный&nbsp;протагонист&nbsp;<em><a href="/optimus.htm">Optimus</a></em></p>
 
-                {{ content }}
+            <p class="credits">Если вы горите желанием сделать шрифт для Пепяки, нарисуйте пару-тройку букв и пришлите на <a href="mailto:mailbox@dizaina.net">mailbox@dizaina.net</a></p>
 
-            <div class="footer">
-              <div class="contact">
-                <p>
-                  Your Name<br />
-                  What You Are<br />
-                  your@email.com
-                </p>
-              </div>
-              <div class="contact">
-                <p>
-                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
-                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> <!-- /container -->
+            <p><a href="http://dizaina.net/" class="dizaina-logo">&empty; dizaina.net</a></p>
+        </footer>
     </body>
 </html>

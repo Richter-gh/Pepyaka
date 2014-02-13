@@ -46,3 +46,15 @@ html.boxshadow kbd {
   vertical-align: 0.1em;
   margin: 0 0.2em;
 }
+
+/* CREDITS */
+.credits {
+	font-family: 'Bebas Neue Webfont';
+	word-spacing: 0.2em;
+	color: #8f8884;
+}
+
+.credits em {
+	font-style: normal;
+	font-size: 1.3em;
+}

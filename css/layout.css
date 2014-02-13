@@ -16,3 +16,15 @@
 .page-header .logo .tagline {
 	margin: 1em 0 0 0;
 }
+
+
+
+.page-footer {
+	max-width: 60em;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.page-footer > p:last-child {
+	margin-bottom: 0;
+}
