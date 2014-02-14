@@ -2,22 +2,99 @@
 	text-align: center;
 }
 
-.page-header .logo {
+.site-logo {
 	display: inline-block;
 	background: white;
 	border-radius: 1em;
 	padding: 1em;
 }
 
-.page-header .logo .title {
+.site-logo .title {
 	margin: 0;
 }
 
-.page-header .logo .tagline {
+html.js .site-logo .title.nojs {
+    display: none;
+}
+
+.site-logo .tagline {
 	margin: 1em 0 0 0;
 }
 
-.font-settings {
+.main-menu {
+    margin-top: 1.5em;
+}
+
+.main-menu ul {
+    overflow: hidden; /* clearfix */
+    margin: 0;
+}
+
+.main-menu ul > li {
+    float: left;
+    margin: 0;
+}
+
+.main-menu ul > li > a {
+    text-decoration: none;
+}
+
+.main-menu ul > li > * {
+    display: inline-block;
+    padding: 0.3em 1em;
+    border: 1px solid transparent;
+    border-radius: 0.3em 0.3em 0 0;
+}
+
+.main-menu ul > li.active > * {
+    position: relative;
+    border-color: #ccc3c0 #ccc3c0 transparent #ccc3c0;
+}
+
+.main-menu ul > li.active > *:before,
+.main-menu ul > li.active > *:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 80em;
+    border-top: 1px solid #ccc3c0;
+}
+
+.main-menu ul > li.active > *:before {
+    right: 100%;
+}
+
+.main-menu ul > li.active > *:after {
+    left: 100%;
+}
+
+.content {
+    margin-top: 3em;
+}
+
+html.js .pepyaka-fallback-form {
+    display: none;
+}
+
+.pepyaka-generator > section {
+    margin-bottom: 1.5em;
+}
+
+.pepyaka-generator h2 {
+    margin-bottom: 0.3em;
+}
+
+.pepyaka-generator section.text {
+    transition: padding 0.5s ease;
+}
+
+.pepyaka-generator.no-text section.text {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+.pepyaka-generator .font-settings {
     position: relative;
     background: white;
     border-radius: 1em;
@@ -29,7 +106,8 @@
                 opacity 0.5s cubic-bezier(.75,-0.34,.83,.67);
 }
 
-html.js .font-settings.hidden {
+html.js .pepyaka-generator .font-settings.hidden {
+    display: none;
     visibility: hidden;
     max-height: 0;
     opacity: 0;
@@ -39,7 +117,7 @@ html.js .font-settings.hidden {
                 opacity 0.3s ease;
 }
 
-.font-settings:after {
+.pepyaka-generator .font-settings:after {
     content: '';
     position: absolute;
     display: block;
@@ -53,14 +131,14 @@ html.js .font-settings.hidden {
     border-top: 0;
 }
 
-ul.font-list {
+.pepyaka-generator ul.font-list {
     text-align: center;
     list-style-type: none;
     padding: 0;
     margin: 1em;
 }
 
-ul.font-list li {
+.pepyaka-generator ul.font-list li {
     vertical-align: top;
     text-align: left;
     display: inline-table;
@@ -70,26 +148,35 @@ ul.font-list li {
     margin: 0;
 }
 
-ul.font-list li label.font-option {
+.pepyaka-generator ul.font-list li label.font-option {
     display: table-cell;
     vertical-align: middle;
 }
 
-input.main-text-input {
+.pepyaka-generator input.main-text-input {
     font-size: 1.5em;
     width: 100%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    transition: font-size 0.5s ease;
 }
 
-.settings-notice {
+.pepyaka-generator.no-text input.main-text-input {
+    font-size: 2em;
+}
+
+.pepyaka-generator .settings-notice {
     font-size: 0.8em;
     margin: 0.5em 0 0;
     text-align: center;
 }
 
-.preview {
+.pepyaka-generator.no-text .preview {
+    display: none;
+}
+
+.pepyaka-generator .preview {
     background: #fff;
     padding: 1em;
     border-radius: 1em;
@@ -99,7 +186,7 @@ input.main-text-input {
 
 .page-footer {
 	max-width: 60em;
-	margin: 0 auto;
+	margin: 3em auto 0;
 	text-align: center;
 }
 

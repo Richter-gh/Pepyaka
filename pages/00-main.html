@@ -1,19 +1,23 @@
 ---
 layout: default
 title: Буквы
+permalink: /
 ---
 
-<form action="/" method="GET">
+<form action="/" method="GET" class="pepyaka-fallback-form js-pepyaka-fallback-form" id="pepyaka_fallback_form">
+</form>
+
+<div class="pepyaka-generator js-pepyaka-generator no-text">
     <section class="text">
-        <input type="text" class="main-text-input" name="text" placeholder="Текст">
+        <input type="text" class="main-text-input js-main-text-input" name="text" placeholder="Текст" autocomplete="off" form="pepyaka_fallback_form">
 
         <p class="settings-notice">Можно <button class="pseudo-link js-toggle-font-settings">поиграться шрифтами</button>!</p>
 
-        <section class="font-settings js-font-settings">
+        <section class="font-settings js-font-settings hidden">
             <ul class="font-list">
                 <li>
                     <label class="font-option">
-                        <input type="checkbox" name="katjka" checked>
+                        <input type="checkbox" name="katjka" form="pepyaka_fallback_form" checked>
                         <span class="fancy-switch"></span>
                         <img src="/i/fonts/katjka/D090.gif"><img src="/i/fonts/katjka/D0B1.gif"><img src="/i/fonts/katjka/D0B2.gif">
                     </label>
@@ -21,7 +25,7 @@ title: Буквы
 
                 <li>
                     <label class="font-option">
-                        <input type="checkbox" name="wd" checked>
+                        <input type="checkbox" name="wd" form="pepyaka_fallback_form" checked>
                         <span class="fancy-switch"></span>
                         <img src="/i/fonts/wd/font_15.gif"><img src="/i/fonts/wd/font_17.gif"><img src="/i/fonts/wd/font_19.gif">
                     </label>
@@ -29,7 +33,7 @@ title: Буквы
 
                 <li>
                     <label class="font-option">
-                        <input type="checkbox" name="lobster" checked>
+                        <input type="checkbox" name="lobster" form="pepyaka_fallback_form" checked>
                         <span class="fancy-switch"></span>
                         <img src="/i/fonts/lobster/a.gif"><img src="/i/fonts/lobster/rus_be.gif"><img src="/i/fonts/lobster/b.gif">
                     </label>
@@ -37,7 +41,7 @@ title: Буквы
 
                 <li>
                     <label class="font-option">
-                        <input type="checkbox" name="hardcoreololo" checked>
+                        <input type="checkbox" name="hardcoreololo" form="pepyaka_fallback_form" checked>
                         <span class="fancy-switch"></span>
                         <img src="/i/fonts/hardcoreololo/a.gif"><img src="/i/fonts/hardcoreololo/s3_1_3.gif"><img src="/i/fonts/hardcoreololo/dr.gif">
                     </label>
@@ -45,7 +49,7 @@ title: Буквы
 
                 <li>
                     <label class="font-option">
-                        <input type="checkbox" name="cron" checked>
+                        <input type="checkbox" name="cron" form="pepyaka_fallback_form" checked>
                         <span class="fancy-switch"></span>
                         <img src="/i/fonts/cron/A.gif"><img src="/i/fonts/cron/B.gif"><img src="/i/fonts/cron/V.gif">
                     </label>
@@ -54,10 +58,7 @@ title: Буквы
         </section>
     </section>
 
-    <section class="result">
-        <h2>Результат</h2>
-        <div class="preview">
+    <section class="preview js-preview">
             <img src="http://pepyaka.su/fonts/katjka/D0BB.gif"><img src="http://pepyaka.su/fonts/lobster/a.gif"><img src="http://pepyaka.su/fonts/wd/font_12.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/a.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/p.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/o.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/p.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/o.gif"><img src="http://pepyaka.su/fonts/lobster/p.gif"><img src="http://pepyaka.su/fonts/katjka/empty.gif"><img src="http://pepyaka.su/fonts/cron/A.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/pr.gif"><img src="http://pepyaka.su/fonts/wd/font_15.gif"><img src="http://pepyaka.su/fonts/cron/Z.gif"><img src="http://pepyaka.su/fonts/katjka/D0B0.gif">
-        </div>
     </section>
-</form>
+</div>

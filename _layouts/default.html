@@ -22,9 +22,9 @@
     <body>
         
         <header class="page-header">
-            <div class="logo">
-                <h1 class="title">
-                    <a href="/"><img src="http://pepyaka.su/fonts/hardcoreololo/gr.gif"><img src="http://pepyaka.su/fonts/katjka/D0B5.gif"><img src="http://pepyaka.su/fonts/wd/font_03.gif"><img src="http://pepyaka.su/fonts/katjka/D18F.gif"><img src="http://pepyaka.su/fonts/katjka/D0BA.gif"><img src="http://pepyaka.su/fonts/wd/font_15.gif"></a>
+            <div class="site-logo">
+                <h1 class="title js-title nojs">
+                    <a href="/"><img src="http://pepyaka.su/fonts/hardcoreololo/gr.gif" alt="П"><img src="http://pepyaka.su/fonts/katjka/D0B5.gif" alt="е"><img src="http://pepyaka.su/fonts/wd/font_03.gif" alt="п"><img src="http://pepyaka.su/fonts/katjka/D18F.gif" alt="я"><img src="http://pepyaka.su/fonts/katjka/D0BA.gif" alt="к"><img src="http://pepyaka.su/fonts/wd/font_15.gif" alt="а"></a>
                 </h1>
                 <p class="tagline">Инструмент подавления уныния</p>
             </div>
@@ -33,7 +33,7 @@
                 <ul>
                     {% for node in site.pages %}
                         {% if page.url == node.url %}
-                            <li class="active"><a href="{{node.url}}">{{node.title}}</a></li>
+                            <li class="active"><span>{{node.title}}</span></li>
                         {% else %}
                             <li><a href="{{node.url}}">{{node.title}}</a></li>
                         {% endif %}
