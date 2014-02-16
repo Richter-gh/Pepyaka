@@ -1,28 +1,43 @@
-$.fn.pepInputController = function() {
-    var _this = $(this),
+pepFormController = function() {
+    var pepInput = $('.js-main-text-input'),
+        pepFontCheckboxes = $('.js-font-checkbox'),
         generatorBlock = $('.js-pepyaka-generator'),
         previewBlock = $('.js-preview'),
-        val = _this[0].value;
+        val = pepInput[0].value,
+        fonts = [];
 
-    _this.on('change blur input keydown', function(e) {
-        var _this = $(this);
+    pepFontCheckboxes.on('change', function() {
+        fonts = [];
 
-        if (_this[0].value !== '') {
+        pepFontCheckboxes.each(function() {
+            if (this.checked) fonts.push($(this).attr('name'));
+        });
+
+        getGifs();
+    });
+
+    pepInput.on('change blur input keydown', function(e) {
+        var pepInput = $(this);
+
+        if (pepInput[0].value !== '') {
             generatorBlock.removeClass('no-text');
         }
         else {
             generatorBlock.addClass('no-text');
         }
 
-        if (val != _this[0].value || e.keyCode == 13) {
+        if (val != pepInput[0].value || e.keyCode == 13) {
             getGifs();
         }
     });
 
     function getGifs() {
-        val = _this[0].value;
+        var picArr;
 
-        previewBlock.html(Pepyaka.generateMarkup(Pepyaka.getGifs(val)));
+        val = pepInput[0].value;
+        picArr = Pepyaka.getGifs(val, fonts);
+
+        previewBlock.html(Pepyaka.generateMarkup(picArr));
     }
 }
 
@@ -42,6 +57,6 @@ $(function() {
 
     title.html(Pepyaka.generateMarkup(Pepyaka.getGifs('Пепяка'), {includeLink: true})).removeClass('nojs');
 
-    pepInput.pepInputController();
+    pepFormController();
     pepInput.focus();
 });

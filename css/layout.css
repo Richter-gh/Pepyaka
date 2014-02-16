@@ -94,18 +94,6 @@ html.js .pepyaka-fallback-form {
     padding-bottom: 1.5em;
 }
 
-.pepyaka-generator .font-settings {
-    position: relative;
-    background: white;
-    border-radius: 1em;
-    margin-bottom: 1em;
-    max-height: 700px;
-    box-shadow: 0 0 1em rgba(20,0,0,0.1);
-    transition: max-height 0.3s ease,
-                margin 0.3s ease,
-                opacity 0.5s cubic-bezier(.75,-0.34,.83,.67);
-}
-
 html.js .pepyaka-generator .font-settings.hidden {
     display: none;
     visibility: hidden;
@@ -117,7 +105,7 @@ html.js .pepyaka-generator .font-settings.hidden {
                 opacity 0.3s ease;
 }
 
-.pepyaka-generator .font-settings:after {
+/*.pepyaka-generator .font-settings:after {
     content: '';
     position: absolute;
     display: block;
@@ -129,26 +117,89 @@ html.js .pepyaka-generator .font-settings.hidden {
     border: 12px solid;
     border-color: transparent transparent #fff transparent;
     border-top: 0;
-}
+}*/
 
 .pepyaka-generator ul.font-list {
     text-align: center;
     list-style-type: none;
     padding: 0;
-    margin: 1em;
-}
-
-.pepyaka-generator ul.font-list li {
-    vertical-align: top;
-    text-align: left;
-    display: inline-table;
-    width: 470px;
-    max-width: 100%;
-    height: 150px;
     margin: 0;
 }
 
-.pepyaka-generator ul.font-list li label.font-option {
+.pepyaka-generator ul.font-list li {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+}
+
+.pepyaka-generator ul.font-list li input {
+    position: absolute;
+    opacity: 0;
+}
+
+.pepyaka-generator ul.font-list li label {
+    position: relative;
+    display: inline-table;
+    vertical-align: top;
+    text-align: center;
+    min-width: 120px;
+    height: 150px;
+    margin: 0 0.5em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    /*border: 1px solid #ccc;*/
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.9),
+                0 1px 0 1px rgba(10,0,0,0.02),
+                0 2px 8px rgba(10,0,0,0.1);
+    background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.05)),
+                      url(/i/background.jpg);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.pepyaka-generator ul.font-list li input:checked + label {
+    background-image: radial-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0)),
+                      linear-gradient(rgba(10,0,0,0.1), rgba(10,0,0,0.05)),
+                      url(/i/background.jpg);
+    /*border-color: #bbb #ccc #ccc #ccc;*/
+    box-shadow: 0 1px 0 rgba(255,255,255,0.6),
+                inset 0 1px 3px rgba(10,0,0,0.2);
+}
+
+/*.pepyaka-generator ul.font-list li input:checked + label:after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    margin-top: -5px;
+    margin-left: -5px;
+    border: 1px solid;
+    border-color: transparent #ccc #ccc transparent;
+    box-shadow: inset -1px -1px 0 rgba(255,255,255,0.3);
+    background-image: linear-gradient(rgba(10,0,0,0.03), rgba(10,0,0,0.03)),
+                      url(/i/background.jpg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}*/
+
+/*.pepyaka-generator ul.font-list li input:focus + label {
+    border-color: #3ea6e3;
+    box-shadow: 0 0 0.2em rgba(22,140,210,0.5);
+}
+
+.pepyaka-generator ul.font-list li input:checked:focus + label {
+    box-shadow: inset 0 -1px 0 rgba(255,255,255,0.35),
+                inset 0 2px 3px rgba(10,0,0,0.07),
+                0 0 0.2em rgba(22,140,210,0.5);
+}*/
+
+
+.pepyaka-generator ul.font-list li label span {
     display: table-cell;
     vertical-align: middle;
 }
@@ -159,7 +210,9 @@ html.js .pepyaka-generator .font-settings.hidden {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    transition: font-size 0.5s ease;
+    transition: font-size 0.5s ease,
+                border linear 0.2s,
+                box-shadow linear 0.2s;
 }
 
 .pepyaka-generator.no-text input.main-text-input {

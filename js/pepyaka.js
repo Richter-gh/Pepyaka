@@ -469,7 +469,7 @@ var Pepyaka = {
         var _this = this,
             data = _this.imgData,
             resultArr = [],
-            fonts = fonts || ['cron', 'hardcoreololo', 'katjka', 'lobster', 'wd'];
+            fonts = (fonts && fonts.length? fonts : ['cron', 'hardcoreololo', 'katjka', 'lobster', 'wd']);
 
         for (var i = 0, l = text.length - 1; i <= l; i++) {
             var variants = [],

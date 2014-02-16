@@ -8,57 +8,68 @@ permalink: /
 </form>
 
 <div class="pepyaka-generator js-pepyaka-generator no-text">
+    <section class="font-settings js-font-settings">
+        <ul class="font-list">
+            <li>
+                <input type="checkbox" class="js-font-checkbox" name="katjka" id="katjka" form="pepyaka_fallback_form" checked>
+                <label for="katjka">
+                    <span><img src="/i/fonts/katjka/D090.gif"></span>
+                </label>
+            </li>
+
+            <li>
+                <input type="checkbox" class="js-font-checkbox" name="wd" id="wd" form="pepyaka_fallback_form" checked>
+                <label for="wd">
+                    <span><img src="/i/fonts/wd/font_15.gif"></span>
+                </label>
+            </li>
+
+            <li>
+                <input type="checkbox" class="js-font-checkbox" name="lobster" id="lobster" form="pepyaka_fallback_form" checked>
+                <label for="lobster">
+                    <span><img src="/i/fonts/lobster/a.gif"></span>
+                </label>
+            </li>
+
+            <li>
+                <input type="checkbox" class="js-font-checkbox" name="hardcoreololo" id="hardcoreololo" form="pepyaka_fallback_form" checked>
+                <label for="hardcoreololo">
+                    <span><img src="/i/fonts/hardcoreololo/a.gif"></span>
+                </label>
+            </li>
+
+            <li>
+                <input type="checkbox" class="js-font-checkbox" name="cron" id="cron" form="pepyaka_fallback_form" checked>
+                <label for="cron">
+                    <span><img src="/i/fonts/cron/A.gif"></span>
+                </label>
+            </li>
+        </ul>
+    </section>
+
     <section class="text">
         <input type="text" class="main-text-input js-main-text-input" name="text" placeholder="Текст" autocomplete="off" form="pepyaka_fallback_form">
 
-        <p class="settings-notice">Можно <button class="pseudo-link js-toggle-font-settings">поиграться шрифтами</button>!</p>
-
-        <section class="font-settings js-font-settings hidden">
-            <ul class="font-list">
-                <li>
-                    <label class="font-option">
-                        <input type="checkbox" name="katjka" form="pepyaka_fallback_form" checked>
-                        <span class="fancy-switch"></span>
-                        <img src="/i/fonts/katjka/D090.gif"><img src="/i/fonts/katjka/D0B1.gif"><img src="/i/fonts/katjka/D0B2.gif">
-                    </label>
-                </li>
-
-                <li>
-                    <label class="font-option">
-                        <input type="checkbox" name="wd" form="pepyaka_fallback_form" checked>
-                        <span class="fancy-switch"></span>
-                        <img src="/i/fonts/wd/font_15.gif"><img src="/i/fonts/wd/font_17.gif"><img src="/i/fonts/wd/font_19.gif">
-                    </label>
-                </li>
-
-                <li>
-                    <label class="font-option">
-                        <input type="checkbox" name="lobster" form="pepyaka_fallback_form" checked>
-                        <span class="fancy-switch"></span>
-                        <img src="/i/fonts/lobster/a.gif"><img src="/i/fonts/lobster/rus_be.gif"><img src="/i/fonts/lobster/b.gif">
-                    </label>
-                </li>
-
-                <li>
-                    <label class="font-option">
-                        <input type="checkbox" name="hardcoreololo" form="pepyaka_fallback_form" checked>
-                        <span class="fancy-switch"></span>
-                        <img src="/i/fonts/hardcoreololo/a.gif"><img src="/i/fonts/hardcoreololo/s3_1_3.gif"><img src="/i/fonts/hardcoreololo/dr.gif">
-                    </label>
-                </li>
-
-                <li>
-                    <label class="font-option">
-                        <input type="checkbox" name="cron" form="pepyaka_fallback_form" checked>
-                        <span class="fancy-switch"></span>
-                        <img src="/i/fonts/cron/A.gif"><img src="/i/fonts/cron/B.gif"><img src="/i/fonts/cron/V.gif">
-                    </label>
-                </li>
-            </ul>
-        </section>
+        <!--p class="settings-notice">Можно <button class="pseudo-link js-toggle-font-settings">поиграться шрифтами</button>!</p-->
     </section>
 
     <section class="preview js-preview">
             <img src="http://pepyaka.su/fonts/katjka/D0BB.gif"><img src="http://pepyaka.su/fonts/lobster/a.gif"><img src="http://pepyaka.su/fonts/wd/font_12.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/a.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/p.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/o.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/p.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/o.gif"><img src="http://pepyaka.su/fonts/lobster/p.gif"><img src="http://pepyaka.su/fonts/katjka/empty.gif"><img src="http://pepyaka.su/fonts/cron/A.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/pr.gif"><img src="http://pepyaka.su/fonts/wd/font_15.gif"><img src="http://pepyaka.su/fonts/cron/Z.gif"><img src="http://pepyaka.su/fonts/katjka/D0B0.gif">
+    </section>
+
+    <ul class="tabs">
+        <li>
+            <span class="pseudo-link">HTML</span>
+        </li>
+        <li>
+            <span class="pseudo-link">BB-код</span>
+        </li>
+        <li>
+            <span class="pseudo-link">Беон</span>
+        </li>
+    </ul>
+    
+    <section class="code">
+        <textarea></textarea>
     </section>
 </div>
