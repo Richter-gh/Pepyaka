@@ -209,7 +209,6 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"] {
-    font-size: 1.2em;
     border: 1px solid #c9c9c9;
     border-radius: 0.2em;
     padding: 0.2em 0.5em;
@@ -246,4 +245,18 @@ input[type="color"]:focus {
                         0 0 0.2em rgba(22,140,210,0.5);
     box-shadow: inset 0 0.1em 0.1em rgba(0,0,0,0.1),
                 0 0 0.2em rgba(22,140,210,0.5);
+}
+
+textarea::-moz-selection,
+input::-moz-selection {
+    background: #168cd2;
+    color: white;
+    text-shadow: none;
+}
+
+textarea::selection,
+input::selection {
+    background: #168cd2;
+    color: white;
+    text-shadow: none;
 }

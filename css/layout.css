@@ -235,6 +235,45 @@ html.js .pepyaka-generator .font-settings.hidden {
     border-radius: 1em;
 }
 
+.pepyaka-generator.no-text .code {
+    display: none;
+}
+
+.pepyaka-generator .code {
+    text-align: center;
+}
+
+.pepyaka-generator ul.markup-switcher {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 0.5em;
+}
+
+.pepyaka-generator ul.markup-switcher li {
+    display: inline-block;
+    margin: 0 0.2em 0.5em 0.2em;
+    padding: 0.2em 0.5em;
+    border-radius: 0.3em;
+}
+
+.pepyaka-generator ul.markup-switcher li.active {
+    background: #999090;
+}
+
+.pepyaka-generator ul.markup-switcher li.active > * {
+    color: #fff;
+    border-bottom-color: transparent;
+}
+
+.pepyaka-generator .code-output {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 40em;
+    height: 10em;
+}
+
 
 
 .page-footer {

@@ -56,20 +56,20 @@ permalink: /
     <section class="preview js-preview">
             <img src="http://pepyaka.su/fonts/katjka/D0BB.gif"><img src="http://pepyaka.su/fonts/lobster/a.gif"><img src="http://pepyaka.su/fonts/wd/font_12.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/a.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/p.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/o.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/p.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/o.gif"><img src="http://pepyaka.su/fonts/lobster/p.gif"><img src="http://pepyaka.su/fonts/katjka/empty.gif"><img src="http://pepyaka.su/fonts/cron/A.gif"><img src="http://pepyaka.su/fonts/hardcoreololo/pr.gif"><img src="http://pepyaka.su/fonts/wd/font_15.gif"><img src="http://pepyaka.su/fonts/cron/Z.gif"><img src="http://pepyaka.su/fonts/katjka/D0B0.gif">
     </section>
-
-    <ul class="tabs">
-        <li>
-            <span class="pseudo-link">HTML</span>
-        </li>
-        <li>
-            <span class="pseudo-link">BB-код</span>
-        </li>
-        <li>
-            <span class="pseudo-link">Беон</span>
-        </li>
-    </ul>
     
     <section class="code">
-        <textarea></textarea>
+        <ul class="markup-switcher js-tabs">
+            <li class="active">
+                <button class="pseudo-link js-show-code" data-markup="html">HTML</button>
+            </li>
+            <li>
+                <button class="pseudo-link js-show-code" data-markup="bb">BB-код</button>
+            </li>
+            <li>
+                <button class="pseudo-link js-show-code" data-markup="beon">Беон</button>
+            </li>
+        </ul>
+
+        <textarea class="code-output js-code-output" readonly></textarea>
     </section>
 </div>

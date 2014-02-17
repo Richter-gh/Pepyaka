@@ -3,8 +3,12 @@ pepFormController = function() {
         pepFontCheckboxes = $('.js-font-checkbox'),
         generatorBlock = $('.js-pepyaka-generator'),
         previewBlock = $('.js-preview'),
+        showCodeButtons = $('.js-show-code'),
+        codeOutputArea = $('.js-code-output'),
         val = pepInput[0].value,
-        fonts = [];
+        fonts = [],
+        picArr = [],
+        activeMarkup = 'html';
 
     pepFontCheckboxes.on('change', function() {
         fonts = [];
@@ -14,6 +18,7 @@ pepFormController = function() {
         });
 
         getGifs();
+        showCode();
     });
 
     pepInput.on('change blur input keydown', function(e) {
@@ -28,12 +33,35 @@ pepFormController = function() {
 
         if (val != pepInput[0].value || e.keyCode == 13) {
             getGifs();
+            showCode();
         }
     });
 
-    function getGifs() {
-        var picArr;
+    showCodeButtons.on('click', function() {
+        activeMarkup = $(this).attr('data-markup');
 
+        showCode();
+
+        codeOutputArea.focus();
+    });
+
+    function showCode(markup) {
+        codeOutputArea.html(Pepyaka.generateMarkup(picArr, {
+            markupName: activeMarkup,
+            includeLink: true,
+            includeDomain: true
+        }));
+
+        codeOutputArea.off('focus.select').one('focus.select', function() {
+            var _this = this;
+            
+            setTimeout(function() {
+                _this.select();
+            }, 0);
+        });
+    }
+
+    function getGifs() {
         val = pepInput[0].value;
         picArr = Pepyaka.getGifs(val, fonts);
 

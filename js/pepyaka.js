@@ -510,10 +510,4 @@ var Pepyaka = {
 
         return result;
     }
-
-    /*function init() {
-        console.log(generateMarkup(getGifs(text), 'html'));
-    }
-
-    init();*/
 };
