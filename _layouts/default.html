@@ -33,9 +33,9 @@
                 <ul>
                     {% for node in site.pages %}
                         {% if page.url == node.url %}
-                            <li class="active"><span>{{node.title}}</span></li>
+                            <li class="active"><span>{{node.menutitle}}</span></li>
                         {% else %}
-                            <li><a href="{{node.url}}">{{node.title}}</a></li>
+                            <li><a href="{{node.url}}">{{node.menutitle}}</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>

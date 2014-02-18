@@ -1,14 +1,15 @@
 ---
 layout: default
-title: ಠ_ಠ
+title: Блог ಠ_ಠ
+menutitle: ಠ_ಠ
 permalink: /blog/
 ---
 
 <div id="home">
-  <h1>Blog Posts</h1>
+  <h1>Блог ಠ_ಠ</h1>
   <ul class="posts">
     {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+      <li><a href="{{ post.url }}">{{ post.title }}</a> — {{ post.author }} — <time>{{ post.date | date_to_string }}</time></li>
     {% endfor %}
   </ul>
 </div>
