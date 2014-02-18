@@ -1,7 +1,11 @@
 pepFormController = function() {
+    var pepForm = document.getElementsByClassName('js-pepyaka-generator');
+
+    if (!pepForm.length) return;
+
     var pepInput = $('.js-main-text-input'),
         pepFontCheckboxes = $('.js-font-checkbox'),
-        generatorBlock = $('.js-pepyaka-generator'),
+        generatorBlock = $(pepForm[0]),
         previewBlock = $('.js-preview'),
         showCodeButtons = $('.js-show-code'),
         codeOutputArea = $('.js-code-output'),
