@@ -2,3 +2,4 @@ name: Пепяка
 markdown: kramdown
 pygments: true
 relative_permalinks: false
+permalink: /blog/:title/
