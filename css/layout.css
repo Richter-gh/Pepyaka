@@ -147,12 +147,12 @@ html.js .pepyaka-generator .font-settings.hidden {
     margin: 0 0.5em;
     border-radius: 0.5em;
     cursor: pointer;
-    /*border: 1px solid #ccc;*/
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.9),
+    border: 3px dashed #aaa;
+    /*box-shadow: inset 0 1px 0 rgba(255,255,255,0.9),
                 0 1px 0 1px rgba(10,0,0,0.02),
                 0 2px 8px rgba(10,0,0,0.1);
     background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.05)),
-                      url(/i/background.jpg);
+                      url(/i/background.jpg);*/
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -160,12 +160,12 @@ html.js .pepyaka-generator .font-settings.hidden {
 }
 
 .pepyaka-generator ul.font-list li input:checked + label {
-    background-image: radial-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0)),
+    border: 3px solid #35B5FF;
+    /*background-image: radial-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0)),
                       linear-gradient(rgba(10,0,0,0.1), rgba(10,0,0,0.05)),
                       url(/i/background.jpg);
-    /*border-color: #bbb #ccc #ccc #ccc;*/
     box-shadow: 0 1px 0 rgba(255,255,255,0.6),
-                inset 0 1px 3px rgba(10,0,0,0.2);
+                inset 0 1px 3px rgba(10,0,0,0.2);*/
 }
 
 /*.pepyaka-generator ul.font-list li input:checked + label:after {
@@ -174,15 +174,11 @@ html.js .pepyaka-generator .font-settings.hidden {
     display: block;
     top: 100%;
     left: 50%;
-    width: 10px;
-    height: 10px;
-    margin-top: -5px;
-    margin-left: -5px;
-    border: 1px solid;
+    width: 16px;
+    height: 16px;
+    margin-left: -8px;
+    border: 3px solid;
     border-color: transparent #ccc #ccc transparent;
-    box-shadow: inset -1px -1px 0 rgba(255,255,255,0.3);
-    background-image: linear-gradient(rgba(10,0,0,0.03), rgba(10,0,0,0.03)),
-                      url(/i/background.jpg);
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }*/
