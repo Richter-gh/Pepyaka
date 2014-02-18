@@ -91,7 +91,7 @@ pepFormController = function() {
                     for( i = 0, _i = lastVal.length; i < _i; i++ )
                         if( lastVal.charAt(i) !== val.charAt(i) )
                             picArr[i] = Pepyaka.getGifs(val.charAt(i), fonts)[0];
-                }else if( val.length > lastVal.length ){
+                }else if( true ){//val.length > lastVal.length ){
                     part1 = '';
                     part2 = lastVal;
                     length1 = 0;
@@ -143,36 +143,22 @@ pepFormController = function() {
                         max2 = _i - max1 - 1;
                         maxPos2 -= max2;
                     }
-                    if( max1 > 0 && max2 === 0 ){
-                        picArr = Array.prototype.concat.apply([],[
+                    if( max1 > 0 || max2 > 0 ){
+                        var combo = [];
+                        combo.push( Pepyaka.getGifs( val.substr(0, maxPos1 > 0 ? maxPos1 : (maxPos2 > 0 && max1 == 0 ? maxPos2 : 0)), fonts ) );
 
-                            maxPos1 > 0 ? Pepyaka.getGifs( val.substr(0, maxPos1), fonts ) : [],
-                            maxPos1 > 0 ? picArr.slice( 0, max1 ) : [],
-                            max1 > 0 && max2 > 0 ? (Pepyaka.getGifs( val.substr(maxPos1+max1, maxPos2-maxPos1-max1), fonts )) :
-                                ( max1 > 0 ? Pepyaka.getGifs( val.substr(maxPos1+max1), fonts ) : []),
-                            max2 > 0 ? picArr.slice( picArr.length - max2 ) : [],
-                            max2 > 0 ? Pepyaka.getGifs( val.substr( maxPos2 + max2), fonts ) : [],
-                        ]);
-
-                    }else if( max2 > 0 && max1 === 0 ){
-                        picArr = Array.prototype.concat.apply([],[
-                            maxPos2 > 0 ? Pepyaka.getGifs( val.substr(0, maxPos2), fonts ) : [],
-                            max2 > 0 ? picArr.slice( picArr.length - max2 ) : [],
-                            max2 > 0 ? Pepyaka.getGifs( val.substr( maxPos2 + max2), fonts ) : [],
-                        ]);
-                    }else if( max1 > 0 && max2 > 0 ){
-                        picArr = Array.prototype.concat.apply([],[
-                            maxPos1 > 0 ? Pepyaka.getGifs( val.substr(0, maxPos1), fonts ) : [],
-                            max1 > 0 ? picArr.slice( 0, max1 ) : [],
-                            max1 > 0 && max2 > 0 ? (Pepyaka.getGifs( val.substr(maxPos1+max1, maxPos2-maxPos1-max1), fonts )) :
-                                ( max1 > 0 ? Pepyaka.getGifs( val.substr(maxPos1+max1), fonts ) : []),
-                            max2 > 0 ? picArr.slice( picArr.length - max2 ) : [],
-                            max2 > 0 ? Pepyaka.getGifs( val.substr( maxPos2 + max2), fonts ) : [],
-                        ]);
+                        if( max1 > 0 ){
+                            combo.push( picArr.slice( 0, max1 ) );
+                            combo.push( Pepyaka.getGifs( max2 > 0 ? val.substr(maxPos1+max1, maxPos2-maxPos1-max1) : val.substr(maxPos1+max1), fonts ) );
+                        }
+                        if( max2 > 0 ){
+                            combo.push( picArr.slice( picArr.length - max2 ) );
+                            combo.push( Pepyaka.getGifs( val.substr( maxPos2 + max2), fonts ) );
+                        }
+                        picArr = Array.prototype.concat.apply([], combo);
                     }else{
                         picArr = Pepyaka.getGifs(val, fonts);
                     }
-                    //console.log(max1,max2,maxPos1,maxPos2)
                 }else{
                     picArr = Pepyaka.getGifs(val, fonts);
                 }
