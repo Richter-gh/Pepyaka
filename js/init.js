@@ -8,7 +8,20 @@ pepFormController = function() {
         val = pepInput[0].value,
         fonts = [],
         picArr = [],
-        activeMarkup = 'html';
+        activeMarkup = 'html',
+        localStorageAvailable = !!window.localStorage;
+
+    if (localStorageAvailable && localStorage.getItem('fonts')) {
+        fonts = JSON.parse(localStorage.getItem('fonts'));
+
+        pepFontCheckboxes.each(function() {
+            var _this = this;
+
+            if (fonts.indexOf(_this.name) !== -1) {
+                _this.checked = true;
+            }
+        });
+    }
 
     pepFontCheckboxes.on('change', function() {
         fonts = [];
@@ -17,9 +30,11 @@ pepFormController = function() {
             if (this.checked) fonts.push($(this).attr('name'));
         });
 
+        if (localStorageAvailable) localStorage.setItem('fonts', JSON.stringify(fonts));
+
         getGifs();
         showCode();
-    });
+    }).change();
 
     pepInput.on('change blur input keydown', function(e) {
         var pepInput = $(this);
