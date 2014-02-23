@@ -1,9 +1,37 @@
 ---
 layout: default
+page_type: post
 ---
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
+<article class="post">
+    <h2>{{ page.title }}</h2>
 
-<div class="post">
-{{ content }}
-</div>
+    <p class="meta"><span class="author">{{ page.author }}</span>, <time>{% include date.htm d=page.date %}</time></p>
+
+    {{ content }}
+
+    {% capture trim_whitespaces %}
+
+    {% assign result_prev = '' %}
+    {% assign result_next = '' %}
+
+    {% for item in site.posts %}
+
+                {% if post_next.id == page.id %}
+                    {% assign processed_post = item %}
+                    
+                    {% capture result_prev %}<a href="{{ item.url }}" class="link-prev"><span class="arr">&larr;</span><span class="title">{{ item.title }}</span></a>{% endcapture %}
+                {% endif %}
+                {% if item.id == page.id %}
+                    {% if post_next %}
+                        {% assign processed_post = post_next %}
+                        
+                        {% capture result_next %}<a href="{{ post_next.url }}" class="link-next"><span class="title">{{ post_next.title }}</span><span class="arr">&rarr;</span></a>{% endcapture %}
+                    {% endif %}
+                {% endif %}
+                {% assign post_next = item %}
+
+        
+    {% endfor %}
+
+    {% endcapture %}{{ result_prev }}{{ result_next }}
+</article>

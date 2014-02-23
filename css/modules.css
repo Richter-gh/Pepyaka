@@ -1,3 +1,117 @@
+/* POST LIST */
+ul.posts {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.posts .meta {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* POST */
+.post {
+    overflow: hidden; /* clearfix */
+}
+
+.post .meta {
+    font-style: italic;
+}
+
+.post .link-prev,
+.post .link-next {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding-bottom: 0.5em;
+}
+
+.post .link-prev .title {
+    padding-left: 0.4em;
+    text-decoration: underline;
+}
+
+.post .link-next .title {
+    padding-right: 0.4em;
+    text-decoration: underline;
+}
+
+.post .link-prev .arr {
+    margin-left: -1.4em;
+}
+
+.post .link-next .arr {
+    margin-right: -1.4em;
+}
+
+@media all and (min-width: 30em) {
+    .post .link-prev .arr,
+    .post .link-next .arr {
+        margin: 0;
+    }
+
+    .post .link-prev {
+        width: 48%;
+        float: left;
+        padding-right: 2%;
+        text-align: left;
+    }
+
+    .post .link-next {
+        width: 48%;
+        float: right;
+        padding-left: 2%;
+        text-align: right;
+    }
+}
+
+@media all and (min-width: 85em) {
+    .post .link-prev,
+    .post .link-next {
+        display: inline-block;
+        width: auto;
+        position: fixed;
+        top: 50%;
+        margin-top: -1.35em;
+        background: #EAE7E4 url(/i/background.jpg);
+        padding: 0.6em;
+        border: 1px solid #CCC3C0;
+        font-size: 1.5em;
+        transition: padding 0.2s ease;
+    }
+
+    .post .link-prev {
+        border-radius: 0 0.3em 0.3em 0;
+        left: 0;
+        border-left: 0;
+    }
+
+    .post .link-next {
+        border-radius: 0.3em 0 0 0.3em;
+        right: 0;
+        border-right: 0;
+    }
+
+    .post .link-prev:hover {
+        padding-left: 1.2em;
+    }
+
+    .post .link-next:hover {
+        padding-right: 1.2em;
+    }
+
+    .post .link-prev .title,
+    .post .link-next .title {
+        text-decoration: none;
+        display: none;
+    }
+
+    .post .link-prev:hover .title,
+    .post .link-next:hover .title {
+        display: inline;
+    }
+}
+
 /* FONT OPTION */
 label.font-option {
 	position: relative;

@@ -96,28 +96,7 @@ html.js .pepyaka-fallback-form {
 
 html.js .pepyaka-generator .font-settings.hidden {
     display: none;
-    visibility: hidden;
-    max-height: 0;
-    opacity: 0;
-    margin-bottom: 0;
-    transition: max-height 0.5s cubic-bezier(.75,-0.34,.83,.67),
-                margin 0.5s cubic-bezier(.75,-0.34,.83,.67),
-                opacity 0.3s ease;
 }
-
-/*.pepyaka-generator .font-settings:after {
-    content: '';
-    position: absolute;
-    display: block;
-    bottom: 100%;
-    left: 50%;
-    height: 0;
-    width: 0;
-    margin-left: -12px;
-    border: 12px solid;
-    border-color: transparent transparent #fff transparent;
-    border-top: 0;
-}*/
 
 .pepyaka-generator ul.font-list {
     text-align: center;
@@ -127,9 +106,17 @@ html.js .pepyaka-generator .font-settings.hidden {
 }
 
 .pepyaka-generator ul.font-list li {
-    position: relative;
     display: inline-block;
+    max-width: 33.33%;
+    width: 140px;
+    position: relative;
     margin: 0;
+}
+
+@media all and (min-width: 30em) {
+    .pepyaka-generator ul.font-list li {
+        max-width: 20%;
+    }
 }
 
 .pepyaka-generator ul.font-list li input {
@@ -139,20 +126,17 @@ html.js .pepyaka-generator .font-settings.hidden {
 
 .pepyaka-generator ul.font-list li label {
     position: relative;
-    display: inline-table;
-    vertical-align: top;
+    display: block;
     text-align: center;
-    min-width: 120px;
-    height: 150px;
-    margin: 0 0.5em;
+    height: 0;
+    margin: 0 5px;
+    padding-bottom: 115%;
     border-radius: 0.5em;
     cursor: pointer;
     border: 3px dashed #aaa;
-    /*box-shadow: inset 0 1px 0 rgba(255,255,255,0.9),
-                0 1px 0 1px rgba(10,0,0,0.02),
-                0 2px 8px rgba(10,0,0,0.1);
-    background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.05)),
-                      url(/i/background.jpg);*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -161,43 +145,26 @@ html.js .pepyaka-generator .font-settings.hidden {
 
 .pepyaka-generator ul.font-list li input:checked + label {
     border: 3px solid #35B5FF;
-    /*background-image: radial-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0)),
-                      linear-gradient(rgba(10,0,0,0.1), rgba(10,0,0,0.05)),
-                      url(/i/background.jpg);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.6),
-                inset 0 1px 3px rgba(10,0,0,0.2);*/
 }
 
-/*.pepyaka-generator ul.font-list li input:checked + label:after {
+.pepyaka-generator ul.font-list li label span:before {
     content: '';
-    position: absolute;
-    display: block;
-    top: 100%;
-    left: 50%;
-    width: 16px;
-    height: 16px;
-    margin-left: -8px;
-    border: 3px solid;
-    border-color: transparent #ccc #ccc transparent;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-}*/
-
-/*.pepyaka-generator ul.font-list li input:focus + label {
-    border-color: #3ea6e3;
-    box-shadow: 0 0 0.2em rgba(22,140,210,0.5);
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
 }
-
-.pepyaka-generator ul.font-list li input:checked:focus + label {
-    box-shadow: inset 0 -1px 0 rgba(255,255,255,0.35),
-                inset 0 2px 3px rgba(10,0,0,0.07),
-                0 0 0.2em rgba(22,140,210,0.5);
-}*/
-
 
 .pepyaka-generator ul.font-list li label span {
-    display: table-cell;
-    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.pepyaka-generator ul.font-list li label img {
+    max-width: 100%;
 }
 
 .pepyaka-generator input.main-text-input {

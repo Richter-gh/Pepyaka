@@ -9,7 +9,7 @@ permalink: /blog/
   <h1>Блог ಠ_ಠ</h1>
   <ul class="posts">
     {% for post in site.posts %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a> — {{ post.author }} — <time>{{ post.date | date_to_string }}</time></li>
+      <li><a href="{{ post.url }}">{{ post.title }}</a> — <span class="meta">{{ post.author }}, <time>{% include date.htm d=post.date %}</time></span></li>
     {% endfor %}
   </ul>
 </div>
