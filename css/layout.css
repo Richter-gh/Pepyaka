@@ -79,11 +79,7 @@ html.js .pepyaka-fallback-form {
 }
 
 .pepyaka-generator > section {
-    margin-bottom: 1.5em;
-}
-
-.pepyaka-generator h2 {
-    margin-bottom: 0.3em;
+    margin-bottom: 2em;
 }
 
 .pepyaka-generator section.text {
@@ -236,6 +232,38 @@ html.js .pepyaka-generator .font-settings.hidden {
     width: 100%;
     max-width: 40em;
     height: 10em;
+}
+
+.pepyaka-generator .share {
+    display: none;
+}
+
+@media all and (min-width: 60em) {
+    .pepyaka-generator .share {
+        display: block;
+    }
+
+    .pepyaka-generator.no-text .share {
+        display: none;
+    }
+}
+
+.pepyaka-generator .share {
+    text-align: center;
+}
+
+.pepyaka-generator .share .share__buttons.is-inactive > * {
+    margin: 0 1.5em;
+}
+
+.pepyaka-generator .share .share__buttons.is-active > * {
+    display: inline-block;
+    vertical-align: top !important;
+    line-height: 0;
+}
+
+.pepyaka-generator .share .fb-like {
+    margin-right: 30px;
 }
 
 

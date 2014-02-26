@@ -57,7 +57,7 @@ ul.posts .meta {
     display: block;
     text-decoration: none;
     text-align: center;
-    padding-bottom: 0.5em;
+    padding: 0.25em 0;
 }
 
 .post .link-prev .title {
