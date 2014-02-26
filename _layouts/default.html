@@ -32,8 +32,8 @@
             <nav class="main-menu">
                 <ul>
                     {% for node in site.pages %}
-                        {% if page.url == node.url %}
-                            <li class="active"><span>{{node.menutitle}}</span></li>
+                        {% if page.url == node.url or (page.url contains 'blog' and node.url contains 'blog') %}
+                            <li class="active"><a href="{{node.url}}">{{node.menutitle}}</a></li>
                         {% else %}
                             <li><a href="{{node.url}}">{{node.menutitle}}</a></li>
                         {% endif %}
