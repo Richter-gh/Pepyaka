@@ -80,15 +80,42 @@ html.js .pepyaka-fallback-form {
 
 .pepyaka-generator > section {
     margin-bottom: 2em;
+    text-align: center;
 }
 
-.pepyaka-generator section.text {
+.pepyaka-generator .text {
     transition: padding 0.5s ease;
 }
 
-.pepyaka-generator.no-text section.text {
+.pepyaka-generator.no-text .text {
     padding-top: 1.5em;
     padding-bottom: 1.5em;
+}
+
+.pepyaka-generator.no-text .text .text__randomize-hint {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.pepyaka-generator .text .text__randomize-hint {
+    margin: 0.5em 0 0 0;
+    padding-left: 3.54em;
+    font-size: 0.9em;
+    transition: opacity 1s cubic-bezier(1,-0.57,.9,.88),
+                padding 0.2s ease;
+}
+
+.pepyaka-generator .text .text__enter-hint {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.pepyaka-generator .text .main-text-input:focus + .text__randomize-hint {
+    padding-left: 0;
+}
+
+.pepyaka-generator .text .main-text-input:focus + .text__randomize-hint .text__enter-hint {
+    opacity: 1;
 }
 
 html.js .pepyaka-generator .font-settings.hidden {
@@ -235,10 +262,10 @@ html.js .pepyaka-generator .font-settings.hidden {
 }
 
 .pepyaka-generator .share {
-    display: none;
+    /*display: none;*/
 }
 
-@media all and (min-width: 60em) {
+/*@media all and (min-width: 60em) {*/
     .pepyaka-generator .share {
         display: block;
     }
@@ -246,7 +273,7 @@ html.js .pepyaka-generator .font-settings.hidden {
     .pepyaka-generator.no-text .share {
         display: none;
     }
-}
+/*}*/
 
 .pepyaka-generator .share {
     text-align: center;
@@ -267,17 +294,6 @@ html.js .pepyaka-generator .font-settings.hidden {
 .pepyaka-generator .share .share__fallback-links > * {
     margin: 0 1.5em;
 }
-
-.pepyaka-generator .share .share__buttons > * {
-    display: inline-block;
-    vertical-align: top !important;
-    line-height: 0;
-}
-
-.pepyaka-generator .share .share__buttons .fb-like {
-    margin-right: 30px;
-}
-
 
 
 .page-footer {

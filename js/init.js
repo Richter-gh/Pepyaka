@@ -35,6 +35,7 @@ pepFormController = function() {
 
     var pepInput = $('.js-main-text-input'),
         pepFontCheckboxes = $('.js-font-checkbox'),
+        randomizeButton = $('.js-randomize-text'),
         generatorBlock = $(pepForm[0]),
         previewBlock = $('.js-preview'),
         showCodeButtons = $('.js-show-code'),
@@ -85,6 +86,11 @@ pepFormController = function() {
             getLetters(e.keyCode == 13);
             showCode();
         }
+    });
+
+    randomizeButton.on('click', function() {
+        getLetters(true);
+        showCode();
     });
 
     showCodeButtons.on('click', function() {
@@ -217,28 +223,12 @@ $(function() {
     pepInput.focus();
 
     /* SOCIAL */
-    if (window.matchMedia && window.matchMedia('all and (min-width: 60em)').matches) {
+    if (true || window.matchMedia && window.matchMedia('all and (min-width: 60em)').matches) {
         $(window).load(function() { /* loading this crap after everything else*/
             $('.js-share').addClass('is-active');
 
-            /* g+ */
-            window.___gcfg = {lang: 'ru'};
-            loadScript('https://apis.google.com/js/platform.js');
-
-            /* twitter */
-            loadScript('http://platform.twitter.com/widgets.js');
-
-            /* vk */
-            loadScript('http://vk.com/js/api/openapi.js?105', function() {
-                VK.init({apiId: 4213563, onlyWidgets: true});
-                VK.Widgets.Like("vk_like", {type: "button"});
-            });
-
-            /* facebook */
-            loadScript('http://connect.facebook.net/ru_RU/all.js#xfbml=1');
-
-            /* mail.ru */
-            loadScript('http://cdn.connect.mail.ru/js/loader.js');
+            /* yandex share plugin */
+            loadScript('http://yandex.st/share/share.js');
         });
     }
 });

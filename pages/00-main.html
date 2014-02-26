@@ -50,6 +50,10 @@ permalink: /
 
     <section class="text">
         <input type="text" class="main-text-input js-main-text-input" name="text" placeholder="Текст" autocomplete="off" form="pepyaka_fallback_form">
+
+        <p class="text__randomize-hint">
+            <button class="pseudo-link js-randomize-text">Порандомить</button><span class="text__enter-hint"> = <kbd>Enter</kbd><span>
+        </p>
     </section>
 
     <section class="preview js-preview">
@@ -87,15 +91,8 @@ permalink: /
         </div>
 
         <div class="share__buttons">
-            <div class="g-plusone" data-size="medium"></div>
-
-            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="ru" data-hashtags="pepyaka"></a>
-
-            <div id="vk_like"></div>
-
-            <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
-
-            <a target="_blank" class="mrc__plugin_uber_like_button" href="http://connect.mail.ru/share" data-mrc-config="{'type' : 'button', 'caption-mm' : '1', 'caption-ok' : '1', 'counter' : 'true', 'text' : 'true', 'width' : '220px', 'st' : '2'}"></a>
+            <div class="yashare-auto-init" data-yashareL10n="ru"
+ data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div>
         </div>
     </section>
 </div>
