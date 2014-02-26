@@ -22,7 +22,7 @@ html.js .site-logo .title.nojs {
 }
 
 .main-menu {
-    margin-top: 1.5em;
+    margin-top: 3em;
 }
 
 .main-menu ul {
@@ -47,6 +47,7 @@ html.js .site-logo .title.nojs {
 }
 
 .main-menu ul > li.active > * {
+    color: inherit;
     position: relative;
     border-color: #ccc3c0 #ccc3c0 transparent #ccc3c0;
 }
