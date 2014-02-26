@@ -252,17 +252,29 @@ html.js .pepyaka-generator .font-settings.hidden {
     text-align: center;
 }
 
-.pepyaka-generator .share .share__buttons.is-inactive > * {
+.pepyaka-generator .share .share__buttons {
+    display: none;
+}
+
+.pepyaka-generator .share.is-active .share__buttons {
+    display: block;
+}
+
+.pepyaka-generator .share.is-active .share__fallback-links {
+    display: none;
+}
+
+.pepyaka-generator .share .share__fallback-links > * {
     margin: 0 1.5em;
 }
 
-.pepyaka-generator .share .share__buttons.is-active > * {
+.pepyaka-generator .share .share__buttons > * {
     display: inline-block;
     vertical-align: top !important;
     line-height: 0;
 }
 
-.pepyaka-generator .share .fb-like {
+.pepyaka-generator .share .share__buttons .fb-like {
     margin-right: 30px;
 }
 

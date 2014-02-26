@@ -219,7 +219,7 @@ $(function() {
     /* SOCIAL */
     if (window.matchMedia && window.matchMedia('all and (min-width: 60em)').matches) {
         $(window).load(function() { /* loading this crap after everything else*/
-            $('.js-share-buttons').removeClass('is-inactive').addClass('is-active');
+            $('.js-share').addClass('is-active');
 
             /* g+ */
             window.___gcfg = {lang: 'ru'};
