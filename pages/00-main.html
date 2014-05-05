@@ -3,12 +3,13 @@ layout: default
 title: Пепяка — инструмент подавления уныния
 menutitle: Буквы
 permalink: /
+lang: ru
 ---
 
-<form action="/" method="GET" class="pepyaka-fallback-form js-pepyaka-fallback-form" id="pepyaka_fallback_form">
-</form>
-
-<div class="pepyaka-generator js-pepyaka-generator no-text">
+<div class="pepyaka-generator js-pepyaka-generator is-empty">
+    <form action="/" method="GET" class="pepyaka-fallback-form js-pepyaka-fallback-form" id="pepyaka_fallback_form">
+    </form>
+    
     <section class="font-settings js-font-settings">
         <ul class="font-list">
             <li>
@@ -51,8 +52,8 @@ permalink: /
     <section class="text">
         <input type="text" class="main-text-input js-main-text-input" name="text" placeholder="Текст" autocomplete="off" form="pepyaka_fallback_form">
 
-        <p class="text__randomize-hint">
-            <button class="pseudo-link js-randomize-text">Порандомить</button><span class="text__enter-hint"> = <kbd>Enter</kbd><span>
+        <p class="randomize-hint">
+            <button class="pseudo-link js-randomize-text">Порандомить</button><span class="enter-hint"> = <kbd>Enter</kbd><span>
         </p>
     </section>
 
@@ -61,14 +62,14 @@ permalink: /
     
     <section class="code">
         <ul class="markup-switcher js-tabs">
-            <li class="active">
-                <button class="pseudo-link js-show-code" data-markup="html">HTML</button>
+            <li class="active js-show-code" data-markup="html">
+                <button class="pseudo-link">HTML</button>
             </li>
-            <li>
-                <button class="pseudo-link js-show-code" data-markup="bb">BB-код</button>
+            <li class="js-show-code" data-markup="bb">
+                <button class="pseudo-link">BB-код</button>
             </li>
-            <li>
-                <button class="pseudo-link js-show-code" data-markup="beon">Беон</button>
+            <li class="js-show-code" data-markup="beon">
+                <button class="pseudo-link">Беон</button>
             </li>
         </ul>
 
@@ -78,7 +79,7 @@ permalink: /
     <section class="share js-share">
         <h2>Расскажи друзякам!</h2>
 
-        <div class="share__fallback-links">
+        <div class="share-fallback-links">
             <a href="https://plus.google.com/share?url=http://pepyaka.su" target="_blank">Загуглоплюсить</a>
 
             <a href="https://twitter.com/share" target="_blank">Твитануть</a>
@@ -90,9 +91,9 @@ permalink: /
             <a href="http://connect.mail.ru/share" target="_blank">Помеелрушить</a>
         </div>
 
-        <div class="share__buttons">
+        <div class="share-buttons">
             <div class="yashare-auto-init" data-yashareL10n="ru"
- data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div>
+ data-yashareQuickServices="gplus,twitter,vkontakte,facebook,moimir,odnoklassniki" data-yashareTheme="counter"></div>
         </div>
     </section>
 </div>

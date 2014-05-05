@@ -17,6 +17,22 @@ html.js .site-logo .title.nojs {
     display: none;
 }
 
+.site-logo .title img {
+    max-width: 70px;
+}
+
+@media all and (min-width: 40em) {
+    .site-logo .title img {
+        max-width: 90px;
+    }
+}
+
+@media all and (min-width: 60em) {
+    .site-logo .title img {
+        max-width: none;
+    }
+}
+
 .site-logo .tagline {
 	margin: 1em 0 0 0;
 }
@@ -73,228 +89,6 @@ html.js .site-logo .title.nojs {
 .content {
     margin-top: 3em;
 }
-
-html.js .pepyaka-fallback-form {
-    display: none;
-}
-
-.pepyaka-generator > section {
-    margin-bottom: 2em;
-    text-align: center;
-}
-
-.pepyaka-generator .text {
-    transition: padding 0.5s ease;
-}
-
-.pepyaka-generator.no-text .text {
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
-}
-
-.pepyaka-generator.no-text .text .text__randomize-hint {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-.pepyaka-generator .text .text__randomize-hint {
-    margin: 0.5em 0 0 0;
-    padding-left: 4.1em;
-    font-size: 0.9em;
-    transition: opacity 1s cubic-bezier(1,-0.57,.9,.88),
-                padding 0.2s ease;
-}
-
-.pepyaka-generator .text .text__enter-hint {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-.pepyaka-generator .text .main-text-input:focus + .text__randomize-hint {
-    padding-left: 0;
-}
-
-.pepyaka-generator .text .main-text-input:focus + .text__randomize-hint .text__enter-hint {
-    opacity: 1;
-}
-
-html.js .pepyaka-generator .font-settings.hidden {
-    display: none;
-}
-
-.pepyaka-generator ul.font-list {
-    text-align: center;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.pepyaka-generator ul.font-list li {
-    display: inline-block;
-    max-width: 33.33%;
-    width: 140px;
-    position: relative;
-    margin: 0;
-}
-
-@media all and (min-width: 30em) {
-    .pepyaka-generator ul.font-list li {
-        max-width: 20%;
-    }
-}
-
-.pepyaka-generator ul.font-list li input {
-    position: absolute;
-    opacity: 0;
-}
-
-.pepyaka-generator ul.font-list li label {
-    position: relative;
-    display: block;
-    text-align: center;
-    height: 0;
-    margin: 0 5px;
-    padding-bottom: 115%;
-    border-radius: 0.5em;
-    cursor: pointer;
-    border: 3px dashed #aaa;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.pepyaka-generator ul.font-list li input:checked + label {
-    border: 3px solid #35B5FF;
-}
-
-.pepyaka-generator ul.font-list li label span:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-}
-
-.pepyaka-generator ul.font-list li label span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.pepyaka-generator ul.font-list li label img {
-    max-width: 100%;
-}
-
-.pepyaka-generator input.main-text-input {
-    font-size: 1.5em;
-    width: 100%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    transition: font-size 0.5s ease,
-                border linear 0.2s,
-                box-shadow linear 0.2s;
-}
-
-.pepyaka-generator.no-text input.main-text-input {
-    font-size: 2em;
-}
-
-.pepyaka-generator .settings-notice {
-    font-size: 0.8em;
-    margin: 0.5em 0 0;
-    text-align: center;
-}
-
-.pepyaka-generator.no-text .preview {
-    display: none;
-}
-
-.pepyaka-generator .preview {
-    background: #fff;
-    padding: 1em;
-    border-radius: 1em;
-}
-
-.pepyaka-generator.no-text .code {
-    display: none;
-}
-
-.pepyaka-generator .code {
-    text-align: center;
-}
-
-.pepyaka-generator ul.markup-switcher {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 0.5em;
-}
-
-.pepyaka-generator ul.markup-switcher li {
-    display: inline-block;
-    margin: 0 0.2em 0.5em 0.2em;
-    padding: 0.2em 0.5em;
-    border-radius: 0.3em;
-}
-
-.pepyaka-generator ul.markup-switcher li.active {
-    background: #999090;
-}
-
-.pepyaka-generator ul.markup-switcher li.active > * {
-    color: #fff;
-    border-bottom-color: transparent;
-}
-
-.pepyaka-generator .code-output {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 40em;
-    height: 10em;
-}
-
-.pepyaka-generator .share {
-    /*display: none;*/
-}
-
-/*@media all and (min-width: 60em) {*/
-    .pepyaka-generator .share {
-        display: block;
-    }
-
-    .pepyaka-generator.no-text .share {
-        display: none;
-    }
-/*}*/
-
-.pepyaka-generator .share {
-    text-align: center;
-}
-
-.pepyaka-generator .share .share__buttons {
-    display: none;
-}
-
-.pepyaka-generator .share.is-active .share__buttons {
-    display: block;
-}
-
-.pepyaka-generator .share.is-active .share__fallback-links {
-    display: none;
-}
-
-.pepyaka-generator .share .share__fallback-links > * {
-    margin: 0 1.5em;
-}
-
 
 .page-footer {
 	max-width: 60em;

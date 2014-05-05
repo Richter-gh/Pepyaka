@@ -1,3 +1,15 @@
+$.fn.dTabs = function() {
+    var _this = $(this),
+        tabs = _this.children('li');
+
+    tabs.on('click', function() {
+        tabs.removeClass('active');
+        $(this).addClass('active');
+    });
+
+    return this;
+};
+
 function loadScript(path, callback, errorCallback) {
     var done = false,
         script = document.createElement('script');
@@ -45,7 +57,8 @@ pepFormController = function() {
         fonts = [],
         picArr = [],
         activeMarkup = 'html',
-        localStorageAvailable = !!window.localStorage;
+        localStorageAvailable = !!window.localStorage,
+        isSingleFontSelected = false;
 
     if (localStorageAvailable && localStorage.getItem('fonts')) {
         fonts = JSON.parse(localStorage.getItem('fonts'));
@@ -66,6 +79,15 @@ pepFormController = function() {
             if (this.checked) fonts.push($(this).attr('name'));
         });
 
+        if (fonts.length != 1) {
+            generatorBlock.removeClass('is-single-font-selected');
+            isSingleFontSelected = false;
+        }
+        else {
+            generatorBlock.addClass('is-single-font-selected');
+            isSingleFontSelected = true;
+        }
+
         if (localStorageAvailable) localStorage.setItem('fonts', JSON.stringify(fonts));
 
         getLetters(true);
@@ -76,10 +98,10 @@ pepFormController = function() {
         var pepInput = $(this);
 
         if (pepInput[0].value !== '') {
-            generatorBlock.removeClass('no-text');
+            generatorBlock.removeClass('is-empty');
         }
         else {
-            generatorBlock.addClass('no-text');
+            generatorBlock.addClass('is-empty');
         }
 
         if (val != pepInput[0].value || e.keyCode == 13) {
@@ -97,8 +119,6 @@ pepFormController = function() {
         activeMarkup = $(this).attr('data-markup');
 
         showCode();
-
-        codeOutputArea.focus();
     });
 
     function showCode(markup) {
@@ -205,30 +225,46 @@ pepFormController = function() {
 }
 
 $(function() {
-    $('.js-toggle-font-settings').on('click', function(e) {
-        $('.js-font-settings').toggleClass('hidden');
-    });
-
-    var pepFallbackForm = $('.js-pepyaka-fallback-form'),
+    var body = document.getElementsByTagName('body')[0],
+        pepFallbackForm = $('.js-pepyaka-fallback-form'),
         pepFallbackFormElements = $('[form="pepyaka_fallback_form"]'),
         pepInput = $('.js-main-text-input'),
-        title = $('.js-title');
+        title = $('.js-title'),
+        titleText = title.attr('data-title');
 
     pepFallbackFormElements.removeAttr('form');
     pepFallbackForm.remove();
 
-    title.html(Pepyaka.generateMarkup(Pepyaka.getGifs('Пепяка'), {includeLink: true})).removeClass('nojs');
+    title.html(Pepyaka.generateMarkup(Pepyaka.getGifs(titleText), {includeLink: true})).removeClass('nojs');
 
     pepFormController();
-    pepInput.focus();
+
+    /* focus input on big screens */
+    if (!window.matchMedia || window.matchMedia('(min-width: 60em)').matches) {
+        pepInput.focus();
+    }
+
+    $('.js-tabs').dTabs();
+
+    /* prevent focus after mouse clicks */
+    body.addEventListener('click', function(event) {
+        if ((document.activeElement.tagName == 'BUTTON' ||
+            document.activeElement.tagName == 'INPUT' &&  document.activeElement.getAttribute('type') == 'checkbox' ||
+            document.activeElement.getAttribute('tabindex'))
+            && event.clientX !== 0 && event.clientY !== 0 && event.offsetX !== 0 && event.offsetY !== 0) {
+            document.activeElement.blur();
+        }
+    }, true);
 
     /* SOCIAL */
-    if (true || window.matchMedia && window.matchMedia('all and (min-width: 60em)').matches) {
-        $(window).load(function() { /* loading this crap after everything else*/
-            $('.js-share').addClass('is-active');
+    $(window).load(function() { /* loading this crap after everything else*/
+        $('.js-share').addClass('is-active');
 
-            /* yandex share plugin */
-            loadScript('http://yandex.st/share/share.js');
-        });
-    }
+        /* yandex share plugin */
+        loadScript('http://yandex.st/share/share.js');
+    });
+
+    $('button')[0].addEventListener('click', function(event) {
+        console.log(event);
+    }, false);
 });
