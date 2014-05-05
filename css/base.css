@@ -72,6 +72,10 @@ body {
     background-repeat: repeat-x, repeat;
 }
 
+html.no-cssgradients body {
+    background-repeat: repeat;
+}
+
 html,
 button,
 input,
