@@ -1,3 +1,7 @@
+/*
+Dharma Type (http://dharmatype.com)
+SIL Open Font License 1.1 (http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web)
+*/
 @font-face {
         font-family: 'Bebas Neue Webfont';
         src: url('/font/bebasneue_book.woff') format('woff'),
@@ -6,7 +10,9 @@
         font-style: normal;
 }
 
-
+/*
+Василий Шишкин (http://www.shishkin.ru/)
+*/
 @font-face {
     font-family: 'Fregat Webfont';
     font-style: normal;
