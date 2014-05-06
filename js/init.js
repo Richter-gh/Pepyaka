@@ -260,11 +260,20 @@ $(function() {
         }, 0);
     });
 
-    /* SOCIAL */
+    /* SOCIAL AND METRIKA */
     $(window).load(function() { /* loading this crap after everything else*/
         $('.js-share').addClass('is-active');
 
         /* yandex share plugin */
         loadScript('http://yandex.st/share/share.js');
+
+        /* yandex metrika */
+        (window.yandex_metrika_callbacks = window.yandex_metrika_callbacks || []).push(function() {
+            try {
+                window.yaCounter167628 = new Ya.Metrika({id:167628});
+            }
+            catch(e) {}
+        });
+        loadScript('http://mc.yandex.ru/metrika/watch.js');
     });
 });
