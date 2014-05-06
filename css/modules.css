@@ -209,7 +209,12 @@ html.js .pepyaka-generator .pepyaka-fallback-form {
 }
 
 .pepyaka-generator section.font-settings ul.font-list li input:focus + label {
-    outline: 2px solid;
+    outline: 2px dotted #666;
+}
+
+.pepyaka-generator section.font-settings ul.font-list li input.is-mouse-clicked + label,
+.pepyaka-generator section.font-settings ul.font-list li input:focus + label:hover {
+    outline: none;
 }
 
 .pepyaka-generator section.font-settings ul.font-list li label span:before {

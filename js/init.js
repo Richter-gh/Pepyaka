@@ -245,15 +245,20 @@ $(function() {
 
     $('.js-tabs').dTabs();
 
-    /* prevent focus after mouse clicks */
-    body.addEventListener('click', function(event) {
-        if ((document.activeElement.tagName == 'BUTTON' ||
-            document.activeElement.tagName == 'INPUT' &&  document.activeElement.getAttribute('type') == 'checkbox' ||
-            document.activeElement.getAttribute('tabindex'))
-            && event.clientX !== 0 && event.clientY !== 0 && event.offsetX !== 0 && event.offsetY !== 0) {
-            document.activeElement.blur();
-        }
-    }, true);
+    /* prevent focus after mouse clicks */  
+    body.addEventListener('mouseup', function(event) {
+        setTimeout(function() {
+            var activeElement = document.activeElement;
+
+            if ((activeElement.tagName == 'BUTTON' ||
+            (activeElement.tagName == 'INPUT' &&  activeElement.getAttribute('type') == 'checkbox') ||
+            activeElement.getAttribute('tabindex'))) {
+                $(activeElement).addClass('is-mouse-clicked').on('blur', function(){
+                    $(activeElement).removeClass('is-mouse-clicked');
+                });
+            }
+        }, 0);
+    });
 
     /* SOCIAL */
     $(window).load(function() { /* loading this crap after everything else*/
@@ -262,8 +267,4 @@ $(function() {
         /* yandex share plugin */
         loadScript('http://yandex.st/share/share.js');
     });
-
-    $('button')[0].addEventListener('click', function(event) {
-        console.log(event);
-    }, false);
 });
