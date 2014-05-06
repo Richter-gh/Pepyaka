@@ -350,7 +350,7 @@ html.js .pepyaka-generator .pepyaka-fallback-form {
 
 .pepyaka-generator section.code ul.markup-switcher li.active {
     position: relative;
-    background: #a4ce12;
+    background: #9FEB14;
 }
 
 .pepyaka-generator section.code ul.markup-switcher li.active:after {
@@ -364,7 +364,7 @@ html.js .pepyaka-generator .pepyaka-fallback-form {
     margin-left: -6px;
     border: 6px solid;
     border-bottom: 0;
-    border-color: #a4ce12 transparent transparent transparent
+    border-color: #9FEB14 transparent transparent transparent
 }
 
 .pepyaka-generator section.code ul.markup-switcher li.active > * {
