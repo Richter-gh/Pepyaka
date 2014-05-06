@@ -94,9 +94,7 @@ pepFormController = function() {
         showCode();
     }).change();
 
-    pepInput.on('change blur input keydown', function(e) {
-        var pepInput = $(this);
-
+    pepInput.on('change blur input keyup cut', function(e) {
         if (pepInput[0].value !== '') {
             generatorBlock.removeClass('is-empty');
         }
