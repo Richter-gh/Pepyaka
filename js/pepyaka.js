@@ -1,6 +1,6 @@
 var Pepyaka = {
     o: {
-        path: '/i/fonts/',
+        path: '/fonts/',
         domain: 'pepyaka.su'
     },
 
