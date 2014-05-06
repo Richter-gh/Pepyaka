@@ -40,9 +40,14 @@ body {
   margin: 0;
 }
 
-/*a:focus {
+button:focus {
   outline: thin dotted;
-}*/
+}
+
+:focus:hover,
+:focus:active {
+  outline: none;
+}
 
 :active,
 :hover {
