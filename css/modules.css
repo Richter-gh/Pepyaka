@@ -401,6 +401,13 @@ html.js .pepyaka-generator.is-empty section.share {
     display: block;
 }
 
+.pepyaka-generator section.share.is-active .share-buttons .b-share_theme_counter .b-share-btn__wrap {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.3em 0.5em;
+}
+
 .pepyaka-generator section.share.is-active .share-fallback-links {
     display: none;
 }
