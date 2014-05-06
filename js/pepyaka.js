@@ -483,7 +483,12 @@ var Pepyaka = {
                 if (found) variants.push(_this.o.path + font + '/' + found + '.gif');            
             };
 
-            if (variants.length) resultArr.push([character, variants[Math.floor(Math.random()*variants.length)]]);
+            if (variants.length) {
+                resultArr.push([character, variants[Math.floor(Math.random()*variants.length)]]);
+            }
+            else {
+                resultArr.push(undefined);
+            }
         };
 
         return resultArr;
@@ -503,7 +508,7 @@ var Pepyaka = {
             linkWrap = _this.markups[o.markupName].wrap;
 
         for (var i = 0, l = arr.length - 1; i <= l; i++) {
-            result += imgWrap[0] + (o.includeDomain? 'http://' + _this.o.domain : '') + arr[i][1] + imgWrap[1];
+            arr[i] && (result += imgWrap[0] + (o.includeDomain? 'http://' + _this.o.domain : '') + arr[i][1] + imgWrap[1]);
         }
 
         if (o.includeLink && linkWrap) result = linkWrap[0] + (o.includeDomain?'http://' + _this.o.domain:'') + linkWrap[1] + result + linkWrap[2];

@@ -240,7 +240,8 @@ $(function() {
     pepFormController();
 
     /* focus input on big screens */
-    if (!window.matchMedia || window.matchMedia('(min-width: 60em)').matches) {
+    if (!window.matchMedia ||
+        (window.matchMedia('(min-width: 64em)').matches && window.matchMedia('(min-height: 42em)').matches)) {
         pepInput.focus();
     }
 
