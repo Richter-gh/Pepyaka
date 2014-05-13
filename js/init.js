@@ -119,7 +119,7 @@ pepFormController = function() {
         showCode();
     });
 
-    function showCode(markup) {
+    function showCode() {
         codeOutputArea[0].value = Pepyaka.generateMarkup(picArr, {
             markupName: activeMarkup,
             includeLink: true,
