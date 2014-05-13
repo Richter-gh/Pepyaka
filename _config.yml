@@ -4,6 +4,10 @@ pygments: true
 relative_permalinks: false
 permalink: /blog/:title/
 
+stylus:
+  compress: true
+  path: ./css/
+
 loc:
     title:
         ru: Пепяка
