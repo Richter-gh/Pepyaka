@@ -40,7 +40,7 @@ function loadScript(path, callback, errorCallback) {
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
 }
 
-pepFormController = function() {
+function pepGifFormController() {
     var pepForm = document.getElementsByClassName('js-pepyaka-generator');
 
     if (!pepForm.length) return;
@@ -220,6 +220,64 @@ pepFormController = function() {
 
         previewBlock.html(Pepyaka.generateMarkup(picArr));
     }
+};
+
+function pepCssFormController() {
+    var pepCssForm = document.getElementsByClassName('js-pepyaka-css-generator');
+
+    if (!pepCssForm.length) return;
+
+    if (!Modernizr.textshadow || !Modernizr.cssanimations || !Modernizr.csstransforms) {
+        $('.pep-holder').html('<p><i class="icon-bug"></i> Упс! Ваш браузер <i>не умеет в анимации</i>!</p>');
+        return;
+    }
+
+    var pepBox = $('.pepyaka'),
+        pepInput = $('#pep_input'),
+        asyncInput = $('#async'),
+        sharpInput = $('#sharp'),
+        canExecEvent = true,
+        val = pepInput[0].value,
+        oldRand;
+
+    function redraw() {
+        var result = '';
+
+        val = pepInput[0].value;
+
+        for (var i = 0; i < val.length; i++) {
+            var rand = antiJekpotRandom(0, 7, oldRand);
+
+            oldRand = rand;
+
+            result += '<span class="pep'+rand+'">' + (val[i]==' '?'&nbsp;':val[i]) + '</span>';
+        }
+
+        if (!result) result = '<i class="icon-bug"></i>';
+
+        pepBox.html(result);
+
+        canExecEvent = false;
+        setTimeout(function() {
+            canExecEvent = true;
+        }, 50);
+    }
+
+    pepInput.on('change input keyup blur', function() {
+        if (canExecEvent && val != pepInput[0].value) redraw();
+    })
+    
+    asyncInput.on('change', function() {
+        pepBox.toggleClass('async');
+        redraw();
+    });
+
+    sharpInput.on('change', function() {
+        pepBox.toggleClass('smooth');
+        redraw();
+    });
+
+    moveCursorToEnd(pepInput[0]);
 }
 
 $(function() {
@@ -235,7 +293,8 @@ $(function() {
 
     title.html(Pepyaka.generateMarkup(Pepyaka.getGifs(titleText), {includeLink: true})).removeClass('nojs');
 
-    pepFormController();
+    pepGifFormController();
+    pepCssFormController();
 
     /* focus input on big screens */
     if (!window.matchMedia ||
