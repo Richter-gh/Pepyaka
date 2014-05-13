@@ -8,7 +8,7 @@ var Pepyaka = {
         html: {
             link: [
                 '<a href="',
-                '/">',
+                '">',
                 '</a>'
             ],
             wrap: [
@@ -26,8 +26,8 @@ var Pepyaka = {
         },
         bb: {
             link: [
-                '[URL="',
-                '/"]',
+                '[URL=',
+                ']',
                 '[/URL]'
             ],
             wrap: [
