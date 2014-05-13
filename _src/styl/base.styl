@@ -1,0 +1,232 @@
+/*
+Dharma Type (http://dharmatype.com)
+SIL Open Font License 1.1 (http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web)
+*/
+@font-face
+    font-family 'Bebas Neue Webfont'
+    src url('/font/bebasneue_book.woff') format('woff'),
+        url('/font/bebasneue_book.ttf') format('truetype')
+    font-weight normal
+    font-style normal
+
+/*
+Василий Шишкин (http://www.shishkin.ru/)
+*/
+@font-face
+    font-family 'Fregat Webfont'
+    font-style normal
+    font-weight 400
+    src url('/font/fregat.woff') format('woff'),
+        url('/font/fregat.ttf') format('truetype')
+
+@font-face
+    font-family 'Fregat Webfont'
+    font-style normal
+    font-weight 700
+    src url('/font/fregat_bold.woff') format('woff'),
+        url('/font/fregat_bold.ttf') format('truetype')
+
+@font-face
+    font-family 'Fregat Webfont'
+    font-style italic
+    font-weight 400
+    src url('/font/fregat_italic.woff') format('woff'),
+        url('/font/fregat_italic.ttf') format('truetype')
+
+@font-face
+    font-family 'Fregat Webfont'
+    font-style italic
+    font-weight 700
+    src url('/font/fregat_bold_italic.woff') format('woff'),
+        url('/font/fregat_bold_italic.ttf') format('truetype')
+
+
+::-moz-selection
+    background #FE57A1
+    color white
+    text-shadow none
+
+::selection
+    background #FE57A1
+    color white
+    text-shadow none
+
+.is-mouse-clicked:focus
+    outline none
+
+html
+    min-height 100%
+
+body
+    width 92%
+    max-width 75em
+    margin 1.5em auto
+    overflow-x hidden
+    color #534741
+    line-height 1.6
+    height 100%
+    background #EAE7E4 url(/i/background.jpg)
+    background-image -webkit-linear-gradient(rgba(10,0,0,0.3), rgba(10,0,0,0) 200px),
+                      url(/i/background.jpg)
+    background-image linear-gradient(rgba(10,0,0,0.3), rgba(10,0,0,0) 200px),
+                      url(/i/background.jpg)
+    background-repeat repeat-x, repeat
+
+    html.no-cssgradients &
+        background-repeat repeat
+
+html
+button
+input
+select
+textarea
+    font-family 'Fregat Webfont', sans-serif
+
+
+h1
+h2
+h3
+h4
+    font-weight normal
+    line-height 1.2em
+
+h1
+    font-size 2.2em
+
+h2
+    font-size 1.7em
+
+h3
+    font-size 1.3em
+
+h4
+    font-size 1.15em
+
+p
+    word-wrap break-word
+
+p
+ul
+ol
+pre
+figure
+table
+blockquote
+h1
+h2
+h3
+h4
+hgroup
+    margin 0 0 24px 0 /* fallback */
+    margin 0 0 1.5rem 0
+
+hgroup h1
+hgroup h2
+hgroup h3
+hgroup h4
+    margin-bottom 0
+
+a
+    color #005781
+    text-decoration underline
+
+    &:visited
+        color #005781
+
+    &:hover
+        color #960000
+
+nav ul
+    list-style-type none
+    padding-left 0
+
+li
+    margin 0 0 1.2em 0
+    
+pre
+    background #fff
+    white-space pre
+    word-wrap normal
+    padding 1em
+    overflow auto
+    box-shadow 0 0 5px rgba(64,0,0,0.1)
+    -webkit-overflow-scrolling touch
+
+    html.no-boxshadow &
+        border 1px solid #f4f2ec
+
+code
+    border 1px solid #ddd
+    border-radius 0.25em
+    padding 0 0.25em
+    font-size 0.8em
+    font-family Consolas, Monaco, 'Andale Mono', monospace, serif
+
+    pre &
+        font-size 15px
+        font-size 0.9rem
+        border 0
+        border-radius 0
+        padding 0
+        white-space pre
+        word-wrap normal
+        -moz-tab-size 4
+        -o-tab-size 4
+        tab-size 4
+
+/*
+-----
+forms
+-----
+*/
+input
+    /textarea
+    &[type="text"]
+    &[type="password"]
+    &[type="datetime"]
+    &[type="datetime-local"]
+    &[type="date"]
+    &[type="month"]
+    &[type="time"]
+    &[type="week"]
+    &[type="number"]
+    &[type="email"]
+    &[type="url"]
+    &[type="search"]
+    &[type="tel"]
+    &[type="color"]
+        border 1px solid #c9c9c9
+        border-radius 0.2em
+        padding 0.2em 0.5em
+        -webkit-box-shadow inset 0 0.1em 0.1em rgba(0,0,0,0.1)
+        box-shadow inset 0 0.1em 0.1em rgba(0,0,0,0.1)
+        -moz-box-sizing border-box
+        -webkit-box-sizing border-box
+        box-sizing border-box
+        -webkit-transition border linear 0.2s, box-shadow linear 0.2s
+        -moz-transition border linear 0.2s, box-shadow linear 0.2s
+        -ms-transition border linear 0.2s, box-shadow linear 0.2s
+        -o-transition border linear 0.2s, box-shadow linear 0.2s
+        transition border linear 0.2s, box-shadow linear 0.2s
+
+        &:focus
+            border-color #168cd2
+            outline none
+            -webkit-box-shadow inset 0 0.1em 0.1em rgba(0,0,0,0.1),
+                               0 0 0.2em rgba(22,140,210,0.5)
+            box-shadow inset 0 0.1em 0.1em rgba(0,0,0,0.1),
+                       0 0 0.2em rgba(22,140,210,0.5)
+
+textarea
+input
+    &::-moz-selection
+        background #168cd2
+        color white
+        text-shadow none
+
+textarea
+input
+    &::selection
+        background #168cd2
+        color white
+        text-shadow none
