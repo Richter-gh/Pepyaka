@@ -6,29 +6,37 @@ var Pepyaka = {
 
     markups: {
         html: {
-            wrap: [
+            link: [
                 '<a href="',
                 '/">',
                 '</a>'
             ],
-            img: [
-                '<img src="',
-                '">'
+            wrap: [
+                '<img',
+                '>'
+            ],
+            src: [
+                ' src="',
+                '"'
+            ],
+            alt: [
+                ' alt="',
+                '"'
             ]
         },
         bb: {
-            wrap: [
+            link: [
                 '[URL="',
                 '/"]',
                 '[/URL]'
             ],
-            img: [
+            wrap: [
                 '[IMG]',
                 '[/IMG]'
             ]
         },
         beon: {
-            img: [
+            wrap: [
                 '[image-original-none-',
                 ']'
             ]
@@ -504,14 +512,20 @@ var Pepyaka = {
 
         var _this = this,
             result = '',
-            imgWrap = _this.markups[o.markupName].img,
-            linkWrap = _this.markups[o.markupName].wrap;
+            link = _this.markups[o.markupName].link,
+            wrap = _this.markups[o.markupName].wrap,
+            src = _this.markups[o.markupName].src,
+            alt = _this.markups[o.markupName].alt,
+            escapeHtml = function(str) {
+                return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            };
+            
 
         for (var i = 0, l = arr.length - 1; i <= l; i++) {
-            arr[i] && (result += imgWrap[0] + (o.includeDomain? 'http://' + _this.o.domain : '') + arr[i][1] + imgWrap[1]);
+            arr[i] && (result += wrap[0] + (src? src[0] : '') + (o.includeDomain? 'http://' + _this.o.domain : '') + arr[i][1] + (src? src[1] : '') + (alt? alt[0] + escapeHtml(arr[i][0]) + alt[1] : '') + wrap[1]);
         }
 
-        if (o.includeLink && linkWrap) result = linkWrap[0] + (o.includeDomain?'http://' + _this.o.domain:'') + linkWrap[1] + result + linkWrap[2];
+        if (o.includeLink && link) result = link[0] + (o.includeDomain?'http://' + _this.o.domain:'') + link[1] + result + link[2];
 
         return result;
     }
