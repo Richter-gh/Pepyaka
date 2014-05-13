@@ -23,19 +23,21 @@
         
         <header class="page-header">
             <div class="site-logo">
-                <h1 class="title js-title nojs" data-title="Пепяка">
-                    <a href="/"><img src="http://pepyaka.su/fonts/hardcoreololo/gr.gif" alt="П"><img src="http://pepyaka.su/fonts/katjka/D0B5.gif" alt="е"><img src="http://pepyaka.su/fonts/wd/font_03.gif" alt="п"><img src="http://pepyaka.su/fonts/katjka/D18F.gif" alt="я"><img src="http://pepyaka.su/fonts/katjka/D0BA.gif" alt="к"><img src="http://pepyaka.su/fonts/wd/font_15.gif" alt="а"></a>
+                <h1 class="title js-title nojs" data-title="{{ site.loc.title[page.lang] }}">
+                    <a href="/{% unless page.lang == 'ru' %}{{ page.lang }}/{% endunless %}">{{ site.loc.picTitle[page.lang] }}</a>
                 </h1>
-                <p class="tagline">Инструмент подавления уныния</p>
+                <p class="tagline">{{ site.loc.tagline[page.lang] }}</p>
             </div>
 
             <nav class="main-menu">
                 <ul>
                     {% for node in site.pages %}
-                        {% if page.url == node.url or (page.url contains 'blog' and node.url contains 'blog') %}
-                            <li class="active"><a href="{{node.url}}">{{node.menutitle}}</a></li>
-                        {% else %}
-                            <li><a href="{{node.url}}">{{node.menutitle}}</a></li>
+                        {% if page.lang == node.lang %}
+                            {% if page.url == node.url or (page.url contains 'blog' and node.url contains 'blog') %}
+                                <li class="active"><a href="{{node.url}}">{{node.menutitle}}</a></li>
+                            {% else %}
+                                <li><a href="{{node.url}}">{{node.menutitle}}</a></li>
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                 </ul>
@@ -47,9 +49,9 @@
         </section>
 
         <footer class="page-footer">
-            <p class="credits"><em>Пепяка 3.0 β <a href="https://github.com/wilddeer/Pepyaka">Опенсорсяка</a></em> Авторы&nbsp;шрифтов&nbsp;<em>katjka</em> <em>Wild_Deer</em> <em>Lobster_Petting</em> <em>hardcoreololo</em> <em>CroN</em> Авторы&nbsp;блога&nbsp;<em>JekPot</em> <em>Wild_Deer</em> <em>Psychodozer</em> Укротитель&nbsp;ЭВМ&nbsp;<em>Zibx</em> Главный&nbsp;протагонист&nbsp;<em><a href="/optimus.htm">Optimus</a></em></p>
+            <p class="credits">{{ site.loc.credits[page.lang] }}</p>
 
-            <p class="credits">Если вы горите желанием сделать шрифт для Пепяки, нарисуйте пару-тройку букв и пришлите на <a href="mailto:mailbox@dizaina.net">mailbox@dizaina.net</a></p>
+            <p class="credits">{{ site.loc.contact[page.lang] }}</p>
 
             <p><a href="http://dizaina.net/" class="dizaina-logo">&empty; dizaina.net</a></p>
         </footer>

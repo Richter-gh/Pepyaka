@@ -1,7 +1,8 @@
 var Pepyaka = {
     o: {
         path: '/fonts/',
-        domain: 'pepyaka.su'
+        domain: 'pepyaka.su',
+        lang: document.getElementsByTagName('html')[0].getAttribute('lang')
     },
 
     markups: {
@@ -505,7 +506,6 @@ var Pepyaka = {
     generateMarkup: function(arr, options) {
         var o = options || {};
         
-        o.includeAltAttributes = o.includeAltAttributes || false;
         o.markupName = o.markupName || 'html';
         o.includeLink = o.includeLink || false;
         o.includeDomain = o.includeDomain || false;
@@ -525,7 +525,7 @@ var Pepyaka = {
             arr[i] && (result += wrap[0] + (src? src[0] : '') + (o.includeDomain? 'http://' + _this.o.domain : '') + arr[i][1] + (src? src[1] : '') + (alt? alt[0] + escapeHtml(arr[i][0]) + alt[1] : '') + wrap[1]);
         }
 
-        if (o.includeLink && link) result = link[0] + (o.includeDomain?'http://' + _this.o.domain:'') + link[1] + result + link[2];
+        if (o.includeLink && link) result = link[0] + (o.includeDomain? 'http://' + _this.o.domain + '/' : '/') + (_this.o.lang !== 'ru'? _this.o.lang + '/' : '') + link[1] + result + link[2];
 
         return result;
     }

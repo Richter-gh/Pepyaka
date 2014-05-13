@@ -3,3 +3,27 @@ markdown: kramdown
 pygments: true
 relative_permalinks: false
 permalink: /blog/:title/
+
+loc:
+    title:
+        ru: Пепяка
+        en: Pepyaka
+    tagline:
+        ru: Инструмент подавления уныния
+        en: Despondency suppression tool
+    picTitle:
+        ru: <img src="http://pepyaka.su/fonts/hardcoreololo/gr.gif" alt="П"><img src="http://pepyaka.su/fonts/katjka/D0B5.gif" alt="е"><img src="http://pepyaka.su/fonts/wd/font_03.gif" alt="п"><img src="http://pepyaka.su/fonts/katjka/D18F.gif" alt="я"><img src="http://pepyaka.su/fonts/katjka/D0BA.gif" alt="к"><img src="http://pepyaka.su/fonts/wd/font_15.gif" alt="а">
+        en: <img src="http://pepyaka.su/fonts/wd/font2_55.gif" alt="P"><img src="http://pepyaka.su/fonts/katjka/e.gif" alt="e"><img src="http://pepyaka.su/fonts/hardcoreololo/p.gif" alt="p"><img src="http://pepyaka.su/fonts/katjka/y.gif" alt="y"><img src="http://pepyaka.su/fonts/katjka/a.gif" alt="a"><img src="http://pepyaka.su/fonts/lobster/k.gif" alt="k"><img src="http://pepyaka.su/fonts/wd/font2_08.gif" alt="a">
+    credits:
+        ru: <em>Пепяка 3.0 β <a href="https://github.com/wilddeer/Pepyaka">Опенсорсяка</a></em>
+            Авторы&nbsp;шрифтов&nbsp;<em>katjka</em> <em>Wild_Deer</em> <em>Lobster_Petting</em> <em>hardcoreololo</em> <em>CroN</em>
+            Авторы&nbsp;блога&nbsp;<em>JekPot</em> <em>Wild_Deer</em> <em>Psychodozer</em>
+            Укротители&nbsp;ЭВМ&nbsp;<em>Zibx</em> <em>Wild_Deer</em>
+            Главный&nbsp;протагонист&nbsp;<em><a href="/optimus.htm">Optimus</a></em>
+        en: <em>Pepyaka 3.0 β <a href="https://github.com/wilddeer/Pepyaka">Opensourcyaka</a></em>
+            Fonts&nbsp;by&nbsp;<em>katjka</em> <em>Wild_Deer</em> <em>Lobster_Petting</em> <em>hardcoreololo</em>
+            Electronic&nbsp;machine&nbsp;tamers&nbsp;<em>Zibx</em> <em>Wild_Deer</em>
+            Main&nbsp;protagonist&nbsp;<em><a href="/optimus.htm">Optimus</a></em>
+    contact:
+        ru: Если вы горите желанием сделать шрифт для Пепяки, нарисуйте пару-тройку букв и пришлите на <a href="mailto:mailbox@dizaina.net">mailbox@dizaina.net</a>
+        en: If you desperately want to make a font for Pepyaka, draw a couple of chars and drop us a line at <a href="mailto:mailbox@dizaina.net">mailbox@dizaina.net</a>
