@@ -10,6 +10,18 @@ $.fn.dTabs = function() {
     return this;
 };
 
+$.fn.dTextareaSelectAll = function() {
+    var _this = this;
+
+    $(_this).off('focus.select').one('focus.select', function() {
+        setTimeout(function() {
+            _this.select();
+        }, 0);
+    });
+
+    return this;
+}
+
 function loadScript(path, callback, errorCallback) {
     var done = false,
         script = document.createElement('script');
@@ -135,13 +147,7 @@ function pepGifFormController() {
             includeDomain: true
         });
 
-        codeOutputArea.off('focus.select').one('focus.select', function() {
-            var _this = this;
-
-            setTimeout(function() {
-                _this.select();
-            }, 0);
-        });
+        codeOutputArea.dTextareaSelectAll();
     }
 
     function getLetters( regenerate ) {
@@ -236,18 +242,21 @@ function pepCssFormController() {
 
     if (!pepCssGeneratorBlock.length) return;
 
-    if (!Modernizr.textshadow || !Modernizr.cssanimations || !Modernizr.csstransforms) {
-        //handle error
-        return;
-    }
-
-    var pepInput = pepCssGeneratorBlock.find('.js-main-text-input'),
+    var browserSupport = Modernizr.textshadow && Modernizr.cssanimations && Modernizr.csstransforms,
+        pepInput = pepCssGeneratorBlock.find('.js-main-text-input'),
         previewBlock = pepCssGeneratorBlock.find('.js-preview'),
         codeOutputArea = pepCssGeneratorBlock.find('.js-code-output'),
         val = pepInput[0].value,
-        asyncInput = $('#async'),
-        sharpInput = $('#sharp'),
-        oldRand;
+        asyncInput = pepCssGeneratorBlock.find('[name="async"]'),
+        smoothInput = pepCssGeneratorBlock.find('[name="smooth"]'),
+        pepClasses = '',
+        oldRand,
+        options = {
+            async: true,
+            smooth: false
+        };
+
+    if (!browserSupport) pepCssGeneratorBlock.addClass('is-error');
 
     /* for the glory of JekPot! (https://twitter.com/JekPot) */
     function antiJekpotRandom(min, max, old) {
@@ -258,21 +267,35 @@ function pepCssFormController() {
     }
 
     function redraw() {
-        var result = '';
+        var result = '',
+            classes = ['pepyaka'];
+
+        if (options.smooth) {
+            classes.push('smooth');
+        }
 
         val = pepInput[0].value;
 
         for (var i = 0; i < val.length; i++) {
-            var rand = antiJekpotRandom(0, 7, oldRand);
+            var rand,
+                asyncClass = '';
 
-            oldRand = rand;
+            if (options.async) {
+                rand = antiJekpotRandom(0, 7, oldRand);
+                asyncClass = ' class="pep'+rand+'"';
+                oldRand = rand;
+            }
 
-            result += '<span class="pep'+rand+'">' + (val[i]==' '?'&nbsp;':val[i]) + '</span>';
+            result += '<span' + asyncClass + '>' + (val[i]==' '?'&nbsp;':val[i]) + '</span>';
         }
+
+        result = '<span class="' + classes.join(' ') + '">' + result + '</span>';
 
         //if (!result) result = '<i class="icon-bug"></i>';
 
-        previewBlock.html(result);
+        if (browserSupport) previewBlock.html(result);
+        codeOutputArea[0].value = result;
+        codeOutputArea.dTextareaSelectAll();
     }
 
     pepInput.on('change blur input keyup cut', function() {
@@ -280,12 +303,12 @@ function pepCssFormController() {
     })
     
     asyncInput.on('change', function() {
-        previewBlock.toggleClass('async');
+        options.async = !options.async;
         redraw();
     });
 
-    sharpInput.on('change', function() {
-        previewBlock.toggleClass('smooth');
+    smoothInput.on('change', function() {
+        options.smooth = !options.smooth;
         redraw();
     });
 }

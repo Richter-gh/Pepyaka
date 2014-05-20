@@ -230,6 +230,10 @@ ul.posts
             transition padding 0.2s ease,
                        opacity 0.2s ease
 
+        label.text-option
+            display inline-block
+            padding 0.5em 0.5em 0
+
     &.is-empty section.text
         @media all and (min-width: 40em)
             padding-top 1.5em
@@ -258,6 +262,20 @@ ul.posts
 
             @media all and (min-width: 40em)
                 max-height none
+
+        .pepyaka
+            font-size 3.2em
+
+            @media all and (min-width: 40em)
+                font-size 4em
+
+        .error
+            margin-bottom 0
+            display none
+
+    &.is-error section.preview
+        .error
+            display block
 
     &.is-empty section.preview
         display none
@@ -298,12 +316,19 @@ ul.posts
                         color #fff
                         border-bottom-color transparent
 
-        textarea.code-output
+        p
+        h2
+        pre
+        textarea
+            margin-left auto
+            margin-right auto
+            max-width 40em
             -webkit-box-sizing border-box
             -moz-box-sizing border-box
             box-sizing border-box
+
+        textarea.code-output
             width 100%
-            max-width 40em
             height 10em
 
     &.is-empty section.code

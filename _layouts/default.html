@@ -10,6 +10,9 @@
         <link rel="shortcut icon" href="/favicon.ico">
 
         <link rel="stylesheet" href="/css/styles.css">
+        {% if page.generator == 'css'%}
+        <link rel="stylesheet" href="/css/pepyaka-font.css">
+        {% endif %}
 
         <script src="/js/modernizr.js"></script>
     </head>
@@ -34,6 +37,15 @@
                                 <li><a href="{{node.url}}">{{node.menutitle}}</a></li>
                             {% endif %}
                         {% endif %}
+                    {% endfor %}
+
+                    {% for lang in site.lang %}
+                        {% if page.lang == lang %}
+                            <li class="lang"><span>{{ lang | upcase }}</span></li>
+                        {% else %}
+                            <li class="lang"><a href="/{% unless lang == 'ru' %}{{ lang }}/{% endunless %}">{{ lang | upcase }}</a></li>
+                        {% endif %}
+
                     {% endfor %}
                 </ul>
             </nav>

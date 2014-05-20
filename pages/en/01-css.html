@@ -2,36 +2,38 @@
 layout: default
 title: CSS-animated epileptic text
 menutitle: CSS
+generator: css
 permalink: /en/css/
 lang: en
 ---
 
 <div class="pepyaka-generator pepyaka-css-generator js-pepyaka-generator js-pepyaka-css-generator is-empty">
     <section class="text">
-        <input type="text" class="main-text-input js-main-text-input" name="text" placeholder="Type something!" autocomplete="off">
+        <input type="text" class="main-text-input js-main-text-input" name="text" placeholder="Go on, type something" autocomplete="off">
+        <label class="text-option"><input type="checkbox" name="async" checked> Async</label>
+        <label class="text-option"><input type="checkbox" name="smooth"> Smooth</label>
     </section>
 
     <section class="preview js-preview">
+        <p class="error">Whoops! Your browser doesn’t support CSS-animations. <a href="http://browsehappy.com/">Update your browser</a>, yo!</p>
     </section>
     
     <section class="code">
-        <ul class="markup-switcher js-tabs">
-            <li class="active js-show-code" data-markup="html">
-                <button class="pseudo-link">HTML</button>
-            </li>
-            <li class="js-show-code" data-markup="bb">
-                <button class="pseudo-link">BB-code</button>
-            </li>
-            <li class="js-show-code" data-markup="beon">
-                <button class="pseudo-link">Beon</button>
-            </li>
-        </ul>
+        <h2>1. CSS</h2>
+
+        <p>Download <a href="/css/pepyaka-font.css" download>pepyaka-font.css</a>, link it from the <code>&lt;head&gt;</code> section of your page, like so:</p>
+
+        <pre><code>&lt;head&gt;<br/>    ...<br/>    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/pepyaka-font.css&quot;&gt;<br/>    ....<br/>&lt;/head&gt;</code></pre>
+
+        <h2>2. Markup</h2>
+
+        <p>Use this markup anywhere on your page:</p>
 
         <textarea class="code-output js-code-output"></textarea>
     </section>
 
     <section class="share js-share">
-        <h2>Tell ya friends!</h2>
+        <h2>3. Tell ya friends!</h2>
 
         <div class="share-fallback-links">
             <a href="https://plus.google.com/share?url=http://pepyaka.su" target="_blank">Googleplus it</a>
