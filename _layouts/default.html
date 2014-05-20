@@ -29,7 +29,14 @@
 
             <nav class="main-menu">
                 <ul>
-                    {% assign sorted_pages = site.pages | sort:"name" %}
+                    {% for lang in site.lang %}
+                        {% if page.lang == lang %}
+                            <li class="lang"><span>{{ lang | upcase }}</span></li>
+                        {% else %}
+                            <li class="lang"><a href="/{% unless lang == 'ru' %}{{ lang }}/{% endunless %}">{{ lang | upcase }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% assign sorted_pages = site.pages | sort:'name' %}
                     {% for node in sorted_pages %}
                         {% if page.lang == node.lang %}
                             {% if page.url == node.url or (page.url contains 'blog' and node.url contains 'blog') %}
@@ -38,15 +45,6 @@
                                 <li><a href="{{node.url}}">{{node.menutitle}}</a></li>
                             {% endif %}
                         {% endif %}
-                    {% endfor %}
-
-                    {% for lang in site.lang %}
-                        {% if page.lang == lang %}
-                            <li class="lang"><span>{{ lang | upcase }}</span></li>
-                        {% else %}
-                            <li class="lang"><a href="/{% unless lang == 'ru' %}{{ lang }}/{% endunless %}">{{ lang | upcase }}</a></li>
-                        {% endif %}
-
                     {% endfor %}
                 </ul>
             </nav>
