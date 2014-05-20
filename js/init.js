@@ -40,18 +40,34 @@ function loadScript(path, callback, errorCallback) {
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
 }
 
+function pepFormController() {
+    var pepGeneratorBlock = $('.js-pepyaka-generator');
+
+    if (!pepGeneratorBlock.length) return;
+
+    var pepInput = pepGeneratorBlock.find('.js-main-text-input');
+
+    pepInput.on('change blur input keyup cut', function(e) {
+        if (pepInput[0].value !== '') {
+            pepGeneratorBlock.removeClass('is-empty');
+        }
+        else {
+            pepGeneratorBlock.addClass('is-empty');
+        }
+    });
+}
+
 function pepGifFormController() {
-    var pepForm = document.getElementsByClassName('js-pepyaka-generator');
+    var pepGifGeneratorBlock = $('.js-pepyaka-gif-generator');
 
-    if (!pepForm.length) return;
+    if (!pepGifGeneratorBlock.length) return;
 
-    var pepInput = $('.js-main-text-input'),
-        pepFontCheckboxes = $('.js-font-checkbox'),
-        randomizeButton = $('.js-randomize-text'),
-        generatorBlock = $(pepForm[0]),
-        previewBlock = $('.js-preview'),
-        showCodeButtons = $('.js-show-code'),
-        codeOutputArea = $('.js-code-output'),
+    var pepInput = pepGifGeneratorBlock.find('.js-main-text-input'),
+        pepFontCheckboxes = pepGifGeneratorBlock.find('.js-font-checkbox'),
+        randomizeButton = pepGifGeneratorBlock.find('.js-randomize-text'),
+        previewBlock = pepGifGeneratorBlock.find('.js-preview'),
+        showCodeButtons = pepGifGeneratorBlock.find('.js-show-code'),
+        codeOutputArea = pepGifGeneratorBlock.find('.js-code-output'),
         val = pepInput[0].value,
         lastVal = '',
         fonts = [],
@@ -80,11 +96,11 @@ function pepGifFormController() {
         });
 
         if (fonts.length != 1) {
-            generatorBlock.removeClass('is-single-font-selected');
+            pepGifGeneratorBlock.removeClass('is-single-font-selected');
             isSingleFontSelected = false;
         }
         else {
-            generatorBlock.addClass('is-single-font-selected');
+            pepGifGeneratorBlock.addClass('is-single-font-selected');
             isSingleFontSelected = true;
         }
 
@@ -95,13 +111,6 @@ function pepGifFormController() {
     }).change();
 
     pepInput.on('change blur input keyup cut', function(e) {
-        if (pepInput[0].value !== '') {
-            generatorBlock.removeClass('is-empty');
-        }
-        else {
-            generatorBlock.addClass('is-empty');
-        }
-
         if (val != pepInput[0].value || e.keyCode == 13) {
             getLetters(e.keyCode == 13);
             showCode();
@@ -223,22 +232,30 @@ function pepGifFormController() {
 };
 
 function pepCssFormController() {
-    var pepCssForm = document.getElementsByClassName('js-pepyaka-css-generator');
+    var pepCssGeneratorBlock = $('.js-pepyaka-css-generator');
 
-    if (!pepCssForm.length) return;
+    if (!pepCssGeneratorBlock.length) return;
 
     if (!Modernizr.textshadow || !Modernizr.cssanimations || !Modernizr.csstransforms) {
-        $('.pep-holder').html('<p><i class="icon-bug"></i> Упс! Ваш браузер <i>не умеет в анимации</i>!</p>');
+        //handle error
         return;
     }
 
-    var pepBox = $('.pepyaka'),
-        pepInput = $('#pep_input'),
+    var pepInput = pepCssGeneratorBlock.find('.js-main-text-input'),
+        previewBlock = pepCssGeneratorBlock.find('.js-preview'),
+        codeOutputArea = pepCssGeneratorBlock.find('.js-code-output'),
+        val = pepInput[0].value,
         asyncInput = $('#async'),
         sharpInput = $('#sharp'),
-        canExecEvent = true,
-        val = pepInput[0].value,
         oldRand;
+
+    /* for the glory of JekPot! (https://twitter.com/JekPot) */
+    function antiJekpotRandom(min, max, old) {
+        var rand = Math.floor((Math.random()*(max-min+1))+min);
+
+        /* sick recursion! */
+        return (rand == old?antiJekpotRandom(min, max, old):rand);
+    }
 
     function redraw() {
         var result = '';
@@ -253,31 +270,24 @@ function pepCssFormController() {
             result += '<span class="pep'+rand+'">' + (val[i]==' '?'&nbsp;':val[i]) + '</span>';
         }
 
-        if (!result) result = '<i class="icon-bug"></i>';
+        //if (!result) result = '<i class="icon-bug"></i>';
 
-        pepBox.html(result);
-
-        canExecEvent = false;
-        setTimeout(function() {
-            canExecEvent = true;
-        }, 50);
+        previewBlock.html(result);
     }
 
-    pepInput.on('change input keyup blur', function() {
-        if (canExecEvent && val != pepInput[0].value) redraw();
+    pepInput.on('change blur input keyup cut', function() {
+        if (val != pepInput[0].value) redraw();
     })
     
     asyncInput.on('change', function() {
-        pepBox.toggleClass('async');
+        previewBlock.toggleClass('async');
         redraw();
     });
 
     sharpInput.on('change', function() {
-        pepBox.toggleClass('smooth');
+        previewBlock.toggleClass('smooth');
         redraw();
     });
-
-    moveCursorToEnd(pepInput[0]);
 }
 
 $(function() {
@@ -293,6 +303,7 @@ $(function() {
 
     title.html(Pepyaka.generateMarkup(Pepyaka.getGifs(titleText), {includeLink: true})).removeClass('nojs');
 
+    pepFormController();
     pepGifFormController();
     pepCssFormController();
 
