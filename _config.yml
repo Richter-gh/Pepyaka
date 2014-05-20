@@ -8,6 +8,10 @@ stylus:
   compress: true
   path: ./css/
 
+lang:
+    - en
+    - ru
+
 loc:
     title:
         ru: Пепяка
@@ -30,4 +34,4 @@ loc:
             Main&nbsp;protagonist&nbsp;<em><a href="/optimus.htm">Optimus</a></em>
     contact:
         ru: Если вы горите желанием сделать шрифт для Пепяки, нарисуйте пару-тройку букв и пришлите на <a href="mailto:mailbox@dizaina.net">mailbox@dizaina.net</a>
-        en: If you desperately want to make a font for Pepyaka, draw a couple of chars and drop us a line at <a href="mailto:mailbox@dizaina.net">mailbox@dizaina.net</a>
+        en: If you desperately want to make a font for Pepyaka, draw a couple of letters and drop us a line at <a href="mailto:mailbox@dizaina.net">mailbox@dizaina.net</a>
