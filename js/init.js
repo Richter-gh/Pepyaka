@@ -88,8 +88,8 @@ function pepGifFormController() {
         localStorageAvailable = !!window.localStorage,
         isSingleFontSelected = false;
 
-    if (localStorageAvailable && localStorage.getItem('fonts')) {
-        fonts = JSON.parse(localStorage.getItem('fonts'));
+    if (localStorageAvailable && localStorage.getItem('fonts-'+siteOptions.lang)) {
+        fonts = JSON.parse(localStorage.getItem('fonts-'+siteOptions.lang));
 
         pepFontCheckboxes.each(function() {
             var _this = this;
@@ -116,7 +116,7 @@ function pepGifFormController() {
             isSingleFontSelected = true;
         }
 
-        if (localStorageAvailable) localStorage.setItem('fonts', JSON.stringify(fonts));
+        if (localStorageAvailable) localStorage.setItem('fonts-'+siteOptions.lang, JSON.stringify(fonts));
 
         getLetters(true);
         showCode();
@@ -242,7 +242,7 @@ function pepCssFormController() {
 
     if (!pepCssGeneratorBlock.length) return;
 
-    var browserSupport = Modernizr.textshadow && Modernizr.cssanimations && Modernizr.csstransforms,
+    var browserSupport = !window.Modernizr || Modernizr.textshadow && Modernizr.cssanimations && Modernizr.csstransforms,
         pepInput = pepCssGeneratorBlock.find('.js-main-text-input'),
         previewBlock = pepCssGeneratorBlock.find('.js-preview'),
         codeOutputArea = pepCssGeneratorBlock.find('.js-code-output'),
@@ -270,9 +270,7 @@ function pepCssFormController() {
         var result = '',
             classes = ['pepyaka'];
 
-        if (options.smooth) {
-            classes.push('smooth');
-        }
+        if (options.smooth) classes.push('smooth');
 
         val = pepInput[0].value;
 
@@ -312,6 +310,11 @@ function pepCssFormController() {
         redraw();
     });
 }
+
+/* sum options */
+var siteOptions = {};
+siteOptions.lang = document.getElementsByTagName('html')[0].getAttribute('lang') || 'ru';
+siteOptions.path = Pepyaka.o.path = (siteOptions.lang !== 'ru'? siteOptions.lang + '/' : '');
 
 $(function() {
     var body = document.getElementsByTagName('body')[0],

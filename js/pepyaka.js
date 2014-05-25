@@ -1,8 +1,8 @@
 var Pepyaka = {
     o: {
-        path: '/fonts/',
+        fontsPath: '/fonts/',
         domain: 'pepyaka.su',
-        lang: document.getElementsByTagName('html')[0].getAttribute('lang')
+        path: ''
     },
 
     markups: {
@@ -489,7 +489,7 @@ var Pepyaka = {
                     found;
                 
                 found = data[font][character] || data[font][character.toLowerCase()] || data[font][character.toUpperCase()];
-                if (found) variants.push(_this.o.path + font + '/' + found + '.gif');            
+                if (found) variants.push(_this.o.fontsPath + font + '/' + found + '.gif');            
             };
 
             if (variants.length) {
@@ -525,7 +525,7 @@ var Pepyaka = {
             arr[i] && (result += wrap[0] + (src? src[0] : '') + (o.includeDomain? 'http://' + _this.o.domain : '') + arr[i][1] + (src? src[1] : '') + (alt? alt[0] + escapeHtml(arr[i][0]) + alt[1] : '') + wrap[1]);
         }
 
-        if (o.includeLink && link) result = link[0] + (o.includeDomain? 'http://' + _this.o.domain + '/' : '/') + (_this.o.lang !== 'ru'? _this.o.lang + '/' : '') + link[1] + result + link[2];
+        if (o.includeLink && link) result = link[0] + (o.includeDomain? 'http://' + _this.o.domain + '/' : '/') + _this.o.path + link[1] + result + link[2];
 
         return result;
     }
