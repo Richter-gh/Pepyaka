@@ -1,6 +1,5 @@
 $.fn.dTabs = function() {
-    var _this = $(this),
-        tabs = _this.children('li');
+    var tabs = $(this).children('li');
 
     tabs.on('click', function() {
         tabs.removeClass('active');
@@ -346,10 +345,8 @@ $(function() {
         setTimeout(function() {
             var activeElement = document.activeElement;
 
-            if ((activeElement.tagName == 'BUTTON' ||
-            (activeElement.tagName == 'INPUT' &&  activeElement.getAttribute('type') == 'checkbox') ||
-            activeElement.getAttribute('tabindex'))) {
-                $(activeElement).addClass('is-mouse-clicked').on('blur', function(){
+            if (activeElement && activeElement !== body) {
+                $(activeElement).addClass('is-mouse-clicked').one('blur', function(){
                     $(activeElement).removeClass('is-mouse-clicked');
                 });
             }
