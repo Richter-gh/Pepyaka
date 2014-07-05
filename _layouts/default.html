@@ -7,7 +7,15 @@
         
         <title>{{ page.title }}</title>
 
-        <link rel="shortcut icon" href="/favicon.ico">
+        <!-- favicon -->
+        <link rel="shortcut icon" href="/i/favicon.png">
+
+        <!-- win8 tile -->
+        <meta name="msapplication-TileImage" content="/i/win8-tile.png"/>
+        <meta name="msapplication-TileColor" content="#ffd600"/>
+
+        <!-- apple touch icon -->
+        <link rel="apple-touch-icon" sizes="144x144" href="/i/apple-touch-icon.png" />
 
         <link rel="stylesheet" href="/css/styles.css">
         {% if page.generator == 'css'%}
