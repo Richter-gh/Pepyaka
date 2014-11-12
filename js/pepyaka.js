@@ -7,40 +7,18 @@ var Pepyaka = {
 
     markups: {
         html: {
-            link: [
-                '<a href="',
-                '">',
-                '</a>'
-            ],
-            wrap: [
-                '<img',
-                '>'
-            ],
-            src: [
-                ' src="',
-                '"'
-            ],
-            alt: [
-                ' alt="',
-                '"'
-            ]
+            link: '<a href="{{href}}">{{text}}</a>',
+            img: '<img src="{{src}}" alt="{{alt}}">'
         },
         bb: {
-            link: [
-                '[URL=',
-                ']',
-                '[/URL]'
-            ],
-            wrap: [
-                '[IMG]',
-                '[/IMG]'
-            ]
+            link: '[URL={{href}}]{{text}}[/URL]',
+            img: '[IMG]{{src}}[/IMG]'
+        },
+        md: {
+            img: '![{{alt}}]({{src}})'
         },
         beon: {
-            wrap: [
-                '[image-original-none-',
-                ']'
-            ]
+            img: '[image-original-none-{{src}}]'
         }
     },
 
@@ -512,20 +490,18 @@ var Pepyaka = {
 
         var _this = this,
             result = '',
-            link = _this.markups[o.markupName].link,
-            wrap = _this.markups[o.markupName].wrap,
-            src = _this.markups[o.markupName].src,
-            alt = _this.markups[o.markupName].alt,
+            imgTemplate = _this.markups[o.markupName].img,
+            linkTemplate = _this.markups[o.markupName].link,
+            domain = (o.includeDomain? 'http://' + _this.o.domain: ''),
             escapeHtml = function(str) {
                 return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
             };
-            
 
         for (var i = 0, l = arr.length - 1; i <= l; i++) {
-            arr[i] && (result += wrap[0] + (src? src[0] : '') + (o.includeDomain? 'http://' + _this.o.domain : '') + arr[i][1] + (src? src[1] : '') + (alt? alt[0] + escapeHtml(arr[i][0]) + alt[1] : '') + wrap[1]);
+            if (arr[i]) result += imgTemplate.replace('{{src}}', domain + arr[i][1]).replace('{{alt}}', escapeHtml(arr[i][0]));
         }
 
-        if (o.includeLink && link) result = link[0] + (o.includeDomain? 'http://' + _this.o.domain + '/' : '/') + _this.o.path + link[1] + result + link[2];
+        if (o.includeLink && linkTemplate) result = linkTemplate.replace('{{href}}', domain + '/' + _this.o.path).replace('{{text}}', result);
 
         return result;
     }
